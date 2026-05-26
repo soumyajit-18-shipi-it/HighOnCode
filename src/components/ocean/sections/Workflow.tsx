@@ -206,29 +206,7 @@ export function Workflow() {
             </div>
           </div>
 
-          {/* Live Team Telemetry */}
-          <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
-            <div className="rounded-lg border border-[#5EF2FF]/10 bg-[#020B12]/60 p-4">
-              <div className="text-[10px] uppercase text-[#9EE9F2]/70">Projects In Progress</div>
-              <div className="mt-2 font-display text-2xl font-bold text-white">05</div>
-            </div>
-            <div className="rounded-lg border border-[#5EF2FF]/10 bg-[#020B12]/60 p-4">
-              <div className="text-[10px] uppercase text-[#9EE9F2]/70">Technologies Explored</div>
-              <div className="mt-2 font-display text-2xl font-bold text-white">20+</div>
-            </div>
-            <div className="rounded-lg border border-[#5EF2FF]/10 bg-[#020B12]/60 p-4">
-              <div className="text-[10px] uppercase text-[#9EE9F2]/70">Weekly Collaboration Sessions</div>
-              <div className="mt-2 font-display text-2xl font-bold text-white">12+</div>
-            </div>
-            <div className="rounded-lg border border-[#5EF2FF]/10 bg-[#020B12]/60 p-4">
-              <div className="text-[10px] uppercase text-[#9EE9F2]/70">Shared Repositories</div>
-              <div className="mt-2 font-display text-2xl font-bold text-white">08</div>
-            </div>
-            <div className="rounded-lg border border-[#5EF2FF]/10 bg-[#020B12]/60 p-4">
-              <div className="text-[10px] uppercase text-[#9EE9F2]/70">Domains Covered</div>
-              <div className="mt-2 font-display text-base font-semibold text-white">Frontend · AI · Security · Systems</div>
-            </div>
-          </div>
+          {/* Live Team Telemetry removed per request */}
         </div>
       </Reveal>
     </SectionShell>

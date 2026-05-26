@@ -42,8 +42,8 @@ function Bar({ name, value }: { name: string; value: number }) {
           className="h-full rounded-full"
           style={{
             width: `${value}%`,
-            background: "linear-gradient(90deg, #00D9FF, #5EF2FF, #7FFFD4)",
-            boxShadow: "0 0 12px #00D9FF, 0 0 30px #5EF2FF",
+            background: "linear-gradient(90deg, #149ebb, #5EF2FF, #7FFFD4)",
+            boxShadow: "0 0 8px rgba(0,217,255,0.22), 0 0 18px rgba(94,242,255,0.1)",
           }}
         />
       </div>
@@ -64,8 +64,8 @@ function Radar() {
     <svg viewBox="0 0 400 400" className="h-full w-full max-w-[520px]">
       <defs>
         <radialGradient id="rfill" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="#7FFFD4" stopOpacity="0.5" />
-          <stop offset="100%" stopColor="#00D9FF" stopOpacity="0.15" />
+          <stop offset="0%" stopColor="#7FFFD4" stopOpacity="0.24" />
+          <stop offset="100%" stopColor="#00D9FF" stopOpacity="0.08" />
         </radialGradient>
       </defs>
 
@@ -75,20 +75,20 @@ function Radar() {
           points={domains.map((_, i) => pt(i, s * 100).join(",")).join(" ")}
           fill="none"
           stroke="#5EF2FF"
-          strokeOpacity={0.12}
+          strokeOpacity={0.08}
         />
       ))}
       {domains.map((_, i) => {
         const [x, y] = pt(i, 100);
-        return <line key={i} x1={cx} y1={cy} x2={x} y2={y} stroke="#5EF2FF" strokeOpacity="0.1" />;
+        return <line key={i} x1={cx} y1={cy} x2={x} y2={y} stroke="#5EF2FF" strokeOpacity="0.06" />;
       })}
 
       <polygon
         points={polygon}
         fill="url(#rfill)"
-        stroke="#00D9FF"
+        stroke="#38c9df"
         strokeWidth="1.5"
-        style={{ filter: "drop-shadow(0 0 8px #00D9FF)" }}
+        style={{ filter: "drop-shadow(0 0 4px rgba(0,217,255,0.24))" }}
       />
 
       {domains.map((d, i) => {
@@ -98,7 +98,7 @@ function Radar() {
         const [px, py] = pt(i, 110);
         return (
           <g key={d.name}>
-            <circle cx={x} cy={y} r="3" fill="#7FFFD4" style={{ filter: "drop-shadow(0 0 4px #7FFFD4)" }} />
+            <circle cx={x} cy={y} r="3" fill="#7FFFD4" style={{ filter: "drop-shadow(0 0 2px rgba(127,255,212,0.3))" }} />
             <text
               x={px}
               y={py}
@@ -115,8 +115,8 @@ function Radar() {
       })}
 
       <circle cx={cx} cy={cy} r="3" fill="#00D9FF" />
-      <circle cx={cx} cy={cy} r="40" fill="none" stroke="#00D9FF" strokeOpacity="0.2" />
-      <circle cx={cx} cy={cy} r="40" fill="none" stroke="#7FFFD4" strokeOpacity="0.4" strokeDasharray="2 6" className="animate-spin-slow" style={{ transformOrigin: "200px 200px" }} />
+      <circle cx={cx} cy={cy} r="40" fill="none" stroke="#00D9FF" strokeOpacity="0.1" />
+      <circle cx={cx} cy={cy} r="40" fill="none" stroke="#7FFFD4" strokeOpacity="0.22" strokeDasharray="2 6" className="animate-spin-slow" style={{ transformOrigin: "200px 200px" }} />
     </svg>
   );
 }

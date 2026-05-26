@@ -19,7 +19,7 @@ export function Learn() {
       <div className="relative">
         {/* glowing path */}
         <div className="pointer-events-none absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 md:block"
-             style={{ background: "linear-gradient(180deg, transparent, #00D9FF, #7FFFD4, transparent)", boxShadow: "0 0 20px #00D9FF" }} />
+             style={{ background: "linear-gradient(180deg, transparent, rgba(0,217,255,0.8), rgba(127,255,212,0.5), transparent)", boxShadow: "0 0 10px rgba(0,217,255,0.18)" }} />
 
         <div className="grid gap-6 md:grid-cols-2">
           {goals.map((g, i) => (
@@ -27,12 +27,12 @@ export function Learn() {
               <div className={`relative md:${i % 2 === 0 ? "pr-8 text-right" : "pl-8"}`}>
                 <div className="group relative overflow-hidden rounded-2xl glass neon-hover p-6">
                   <span
-                    className="pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full opacity-50 transition group-hover:opacity-100"
-                    style={{ background: "radial-gradient(circle, rgba(0,217,255,0.4), transparent 60%)", filter: "blur(20px)" }}
+                    className="pointer-events-none absolute -right-10 -top-10 h-24 w-24 rounded-full opacity-40 transition group-hover:opacity-75"
+                    style={{ background: "radial-gradient(circle, rgba(0,217,255,0.18), transparent 62%)", filter: "blur(14px)" }}
                   />
                   <div className={`flex items-start gap-4 ${i % 2 === 0 ? "md:flex-row-reverse md:text-right" : ""}`}>
-                    <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-[#5EF2FF]/30 bg-[#020B12]/60"
-                          style={{ boxShadow: "inset 0 0 20px rgba(0,217,255,0.2)" }}>
+                      <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-[#5EF2FF]/22 bg-[#020B12]/60"
+                        style={{ boxShadow: "inset 0 0 14px rgba(0,217,255,0.08)" }}>
                       <g.icon className="h-5 w-5 text-[#7FFFD4]" strokeWidth={1.5} />
                     </span>
                     <div className="min-w-0">

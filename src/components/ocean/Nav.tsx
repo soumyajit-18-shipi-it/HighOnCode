@@ -56,22 +56,22 @@ export function Nav() {
             <a
               key={l.id}
               href={`#${l.id}`}
-              className="relative rounded-lg px-3 py-1.5 text-xs uppercase tracking-widest text-[#9EE9F2]/80 transition hover:text-[#7FFFD4]"
+              className="relative rounded-lg px-3 py-1.5 text-xs uppercase tracking-widest text-[#9EE9F2]/72 transition hover:text-[#7FFFD4]"
             >
               <span className="relative z-10">{l.label}</span>
-              <span className="absolute inset-0 rounded-lg opacity-0 transition hover:opacity-100" style={{ background: "linear-gradient(180deg, rgba(0,217,255,0.18), transparent)" }} />
+              <span className="absolute inset-0 rounded-lg opacity-0 transition hover:opacity-100" style={{ background: "linear-gradient(180deg, rgba(0,217,255,0.1), transparent)" }} />
             </a>
           ))}
         </nav>
 
         <button
           onClick={() => setSound((s) => !s)}
-          className="group relative flex items-center gap-2 rounded-xl border border-[#5EF2FF]/20 bg-[#041C24]/50 px-3 py-1.5 text-xs uppercase tracking-widest text-[#9EE9F2] transition hover:border-[#00D9FF]/60 hover:text-[#7FFFD4]"
+          className="group relative flex items-center gap-2 rounded-xl border border-[#5EF2FF]/14 bg-[#041C24]/44 px-3 py-1.5 text-xs uppercase tracking-widest text-[#9EE9F2]/90 transition hover:border-[#00D9FF]/30 hover:text-[#E6FBFF]"
           aria-label="Toggle ambient music"
         >
           {sound ? <Volume2 className="h-3.5 w-3.5" /> : <VolumeX className="h-3.5 w-3.5" />}
           <span className="hidden sm:inline">{sound ? "Ambient" : "Muted"}</span>
-          <span className="pointer-events-none absolute inset-0 rounded-xl opacity-0 transition group-hover:opacity-100" style={{ boxShadow: "0 0 24px rgba(0,217,255,0.5)" }} />
+          <span className="pointer-events-none absolute inset-0 rounded-xl opacity-0 transition group-hover:opacity-100" style={{ boxShadow: "0 0 16px rgba(0,217,255,0.18)" }} />
         </button>
 
         <audio ref={audioRef} src={airIndiaTrack} loop preload="auto" />

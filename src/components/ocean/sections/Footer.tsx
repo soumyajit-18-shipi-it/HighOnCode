@@ -1,4 +1,4 @@
-import { Github, Linkedin, Waves } from "lucide-react";
+import swechaLogo from "@/swecha_logo.png";
 
 export function Footer() {
   return (
@@ -8,8 +8,8 @@ export function Footer() {
         <svg viewBox="0 0 1440 120" preserveAspectRatio="none" className="h-full w-[200%] animate-wave">
           <defs>
             <linearGradient id="fw" x1="0" x2="1">
-              <stop offset="0%" stopColor="#00D9FF" stopOpacity="0.6" />
-              <stop offset="100%" stopColor="#7FFFD4" stopOpacity="0.6" />
+              <stop offset="0%" stopColor="#00D9FF" stopOpacity="0.28" />
+              <stop offset="100%" stopColor="#7FFFD4" stopOpacity="0.24" />
             </linearGradient>
           </defs>
           <path d="M0 60 Q180 10 360 60 T720 60 T1080 60 T1440 60 V120 H0 Z M1440 60 Q1620 10 1800 60 T2160 60 T2520 60 T2880 60 V120 H1440 Z" fill="url(#fw)" />
@@ -18,14 +18,14 @@ export function Footer() {
 
       <div
         className="mx-auto mb-6 h-px max-w-7xl"
-        style={{ background: "linear-gradient(90deg, transparent, #00D9FF, transparent)", boxShadow: "0 0 12px #00D9FF" }}
+        style={{ background: "linear-gradient(90deg, transparent, rgba(0,217,255,0.7), transparent)", boxShadow: "0 0 8px rgba(0,217,255,0.16)" }}
       />
 
       <div className="relative mx-auto grid max-w-7xl gap-10 px-6 py-12 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <div className="flex items-center gap-2">
             <span className="grid h-9 w-9 place-items-center rounded-xl border border-[#5EF2FF]/30 bg-[#041C24]">
-              <Waves className="h-5 w-5 text-[#5EF2FF]" strokeWidth={1.5} />
+              <img src={swechaLogo} alt="Swecha logo" className="h-5 w-5 object-cover" />
             </span>
             <span className="font-display text-sm font-bold tracking-[0.2em] text-glow-soft">
               HIGH<span className="gradient-text">ON</span>CODE
@@ -42,14 +42,7 @@ export function Footer() {
 
         <div>
           <h5 className="text-[10px] uppercase tracking-[0.4em] text-[#5EF2FF]/70">Surface</h5>
-          <div className="mt-4 flex gap-2">
-            <SocialIcon icon={Github} />
-            <SocialIcon icon={Linkedin} />
-          </div>
-          <p className="mt-6 font-mono text-[10px] text-[#5EF2FF]/50">
-            // depth.log<br />
-            transmitting from −2,400m
-          </p>
+          <div />
         </div>
       </div>
 
@@ -75,13 +68,4 @@ function FootCol({ title, links, ids }: { title: string; links: string[]; ids: s
   );
 }
 
-function SocialIcon({ icon: Icon }: { icon: typeof Github }) {
-  return (
-    <a
-      href="#"
-      className="grid h-9 w-9 place-items-center rounded-xl border border-[#5EF2FF]/20 bg-[#041C24]/60 text-[#B6EAF2] transition hover:scale-110 hover:border-[#00D9FF]/60 hover:text-white"
-    >
-      <Icon className="h-4 w-4" />
-    </a>
-  );
-}
+// Social icons removed per request

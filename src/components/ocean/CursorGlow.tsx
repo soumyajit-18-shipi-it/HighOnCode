@@ -25,13 +25,13 @@ export function CursorGlow() {
       style={{ opacity: visible ? 1 : 0 }}
     >
       <div
-        className="absolute h-[420px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-full"
+        className="absolute h-[280px] w-[280px] -translate-x-1/2 -translate-y-1/2 rounded-full"
         style={{
           left: pos.x,
           top: pos.y,
           background:
-            "radial-gradient(circle, rgba(0,217,255,0.18) 0%, rgba(94,242,255,0.08) 30%, transparent 70%)",
-          filter: "blur(10px)",
+            "radial-gradient(circle, rgba(0,217,255,0.1) 0%, rgba(94,242,255,0.04) 34%, transparent 72%)",
+          filter: "blur(14px)",
         }}
       />
       <div
@@ -40,7 +40,7 @@ export function CursorGlow() {
           left: pos.x,
           top: pos.y,
           background: "#7FFFD4",
-          boxShadow: "0 0 20px #00D9FF, 0 0 40px #5EF2FF",
+          boxShadow: "0 0 12px rgba(0,217,255,0.45), 0 0 24px rgba(94,242,255,0.2)",
         }}
       />
     </div>

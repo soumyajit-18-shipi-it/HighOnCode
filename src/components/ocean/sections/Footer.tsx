@@ -41,7 +41,7 @@ export function Footer() {
         <FootCol title="Signals" links={["Workflow", "Fun Zone"]} ids={["workflow", "fun"]} />
 
         <div>
-          <h5 className="text-[10px] uppercase tracking-[0.4em] text-[#5EF2FF]/70">Surface</h5>
+          <h5 className="text-[10px] uppercase tracking-[0.4em] text-[#5EF2FF]/70"></h5>
           <div />
         </div>
       </div>

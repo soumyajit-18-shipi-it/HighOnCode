@@ -14,6 +14,8 @@ type Project = {
   stack: string[];
   status: string;
   progress: number;
+  id?: string;
+  highlight?: string;
 };
 
 type Member = {
@@ -26,6 +28,10 @@ type Member = {
   signalId: string;
   about: string;
   skills: string[];
+  tagline?: string;
+  intro?: string;
+  achievementsLabel?: string;
+  achievements?: { title: string; year?: string }[];
   interests: string[];
   projects: Project[];
   highlightsLabel: string;
@@ -36,68 +42,158 @@ type Member = {
 
 const team: Member[] = [
   {
-    name: "Soumyajit Rout",
-    initials: "SR",
-    college: "BITS Pilani",
-    role: "Frontend Developer & AI Systems Enthusiast",
-    accent: "#5EF2FF",
-    accentLabel: "Neon Cyan",
-    signalId: "SR",
-    about:
-      "Computer Science undergraduate passionate about frontend engineering, scalable web systems, and intelligent digital experiences. Experienced in building production-oriented applications using React, Next.js, GSAP, Firebase, and modern frontend architecture practices.",
-    skills: ["React", "Next.js", "TypeScript", "JavaScript", "GSAP", "SASS", "Firebase", "REST APIs", "SQL", "Python", "Java", "C"],
-    interests: ["AI Engineering", "Cloud Computing", "System Design", "Full Stack Development", "Scalable Web Systems"],
-    projects: [
-      {
-        title: "BOSM 2025 Website",
-        description:
-          "Developed and deployed the official BOSM Sports Fest platform using Next.js, TypeScript, GSAP, and SASS. Built scalable participant registration workflows supporting 1500+ users while implementing responsive UI systems and smooth interactive animations.",
-        stack: ["Next.js", "TypeScript", "GSAP", "SASS"],
-        status: "Shipped",
-        progress: 100,
-      },
-      {
-        title: "Student Union Web Portal",
-        description:
-          "Revamped the BITS Pilani Student Union platform with improved accessibility, Firebase authentication, REST API integration, and scalable frontend modules for student-facing services.",
-        stack: ["Firebase", "REST APIs", "Accessibility", "Frontend Modules"],
-        status: "Active",
-        progress: 92,
-      },
-      {
-        title: "Inspired Karters Website",
-        description:
-          "Designed and developed an interactive modern website using Next.js, GSAP, and SASS with animated interfaces, responsive layouts, and engaging user experiences.",
-        stack: ["Next.js", "GSAP", "SASS"],
-        status: "Shipped",
-        progress: 100,
-      },
-      {
-        title: "Futures Analysis Project",
-        description:
-          "Performed stock and futures market analysis using Python and yfinance, including pricing simulations, derivatives modelling, and margin call analysis.",
-        stack: ["Python", "yfinance", "Simulation"],
-        status: "Research",
-        progress: 86,
-      },
-      {
-        title: "UPPAAL Traffic Modelling",
-        description:
-          "Designed and verified a deadlock-free traffic intersection system using automata modelling in UPPAAL while validating system safety and liveness properties.",
-        stack: ["UPPAAL", "Formal Methods", "Automata"],
-        status: "Verified",
-        progress: 94,
-      },
-    ],
+  name: "Soumyajit Rout",
+  initials: "SR",
+  college: "BITS Pilani",
+  role: "AI / ML Engineer · Frontend Developer",
+  tagline:
+    "B.E. Computer Science, BITS Pilani '28 · State Board Science Topper",
+  accent: "#5EF2FF",
+  accentLabel: "Neon Cyan",
+  signalId: "SR",
+
+  about:
+    "AI/ML Engineer with a strong frontend foundation, focused on building intelligent, scalable, and data-driven digital products. Currently exploring machine learning, neural networks, backend systems, and modern web architecture at BITS Pilani. Passionate about combining engineering, design, and AI to create impactful user experiences and production-grade applications.",
+
+  intro:
+    "I'm an AI/ML Engineer with a strong frontend foundation, building intelligent, data-driven web products. Currently deep-diving into machine learning, neural networks, and backend systems at BITS Pilani. Open to collaborations on AI products, research projects, and campus-tech initiatives.",
+
+  skills: [
+    "Python",
+    "NumPy",
+    "Pandas",
+    "scikit-learn",
+    "Matplotlib",
+    "JavaScript",
+    "TypeScript",
+    "Next.js",
+    "React",
+    "SASS",
+    "GSAP",
+    "Java",
+    "C",
+    "MySQL",
+    "Firebase",
+    "Git",
+    "Vercel",
+    "Figma",
+  ],
+
+  interests: [
+    "Artificial Intelligence",
+    "Machine Learning",
+    "Deep Learning",
+    "Cloud Computing",
+    "System Design",
+    "Full Stack Development",
+    "Scalable Web Systems",
+  ],
+
+  achievementsLabel: "Certifications & Scholarships",
+
+  achievements: [
+    {
+      title: "Bharti Airtel Foundation Scholarship",
+      year: "2024 – Present",
+    },
+    {
+      title: "National Means-cum-Merit Scholarship (NMMS)",
+      year: "",
+    },
+    {
+      title: "State Rank 1 in CHSE Odisha Class XII Science Examination",
+      year: "2024",
+    },
+  ],
+
+  projects: [
+    {
+      id: "01",
+      title: "ICICI Bank Futures Analysis",
+      description:
+        "Performed futures pricing simulations, derivatives modelling, and margin call analysis using Python and financial datasets. Built analytical workflows for stock and futures market behaviour evaluation.",
+      stack: ["Python", "yfinance", "Pandas"],
+      highlight: "Futures pricing + margin call simulation",
+      status: "Research",
+      progress: 86,
+    },
+
+    {
+      id: "02",
+      title: "BOSM 2025 Sports Fest Website",
+      description:
+        "Developed and deployed the official BOSM Sports Fest platform using Next.js, TypeScript, GSAP, and SASS. Built scalable registration workflows supporting 1500+ users with responsive UI systems and smooth interactive animations.",
+      stack: ["Next.js", "TypeScript", "GSAP", "SASS"],
+      highlight: "1,500+ registrations · mobile-first",
+      status: "Shipped",
+      progress: 100,
+    },
+
+    {
+      id: "03",
+      title: "BITS Pilani SU Portal",
+      description:
+        "Revamped the BITS Pilani Student Union portal with Firebase authentication, REST API integration, accessibility improvements, and scalable frontend modules for campus services.",
+      stack: ["Next.js", "Firebase", "REST APIs"],
+      highlight: "Unified campus platform",
+      status: "Active",
+      progress: 92,
+    },
+
+    {
+      id: "04",
+      title: "Inspired-Karters Club Site",
+      description:
+        "Designed and developed a modern interactive club website with fluid animations, responsive layouts, and immersive scrolling experiences using GSAP and ScrollTrigger.",
+      stack: ["Next.js", "GSAP", "ScrollTrigger"],
+      highlight: "Fluid scroll animations",
+      status: "Shipped",
+      progress: 100,
+    },
+
+    {
+      id: "05",
+      title: "UPPAAL Traffic Modelling",
+      description:
+        "Designed and verified a deadlock-free traffic intersection system using automata modelling in UPPAAL while validating safety and liveness properties.",
+      stack: ["UPPAAL", "Formal Methods", "Automata"],
+      highlight: "Verified deadlock-free system",
+      status: "Verified",
+      progress: 94,
+    },
+  ],
     highlightsLabel: "Leadership",
     highlights: ["Student Union Technical Team", "President · Utkal Samaj", "Event Coordinator · Nirmaan"],
-    hobbies: ["Building interfaces", "Community initiatives", "Problem solving"],
-    socials: [
-      { icon: Mail, href: "mailto:f20240002@pilani.bits-pilani.ac.in", label: "Email", external: true },
-      { icon: Linkedin, href: "https://www.linkedin.com/in/soumyajit-rout-4a5aa1337", label: "LinkedIn", external: true },
-      { icon: Github, href: "https://github.com/soumyajit-18-shipi-it", label: "GitHub", external: true },
-    ],
-  },
+     hobbies: [
+    "Building interfaces",
+    "AI experimentation",
+    "Community initiatives",
+    "Problem solving",
+  ],
+
+  socials: [
+    {
+      icon: Mail,
+      href: "mailto:f20240002@pilani.bits-pilani.ac.in",
+      label: "Email",
+      external: true,
+    },
+
+    {
+      icon: Linkedin,
+      href: "https://www.linkedin.com/in/soumyajit-rout-4a5aa1337",
+      label: "LinkedIn",
+      external: true,
+    },
+
+    {
+      icon: Github,
+      href: "https://github.com/soumyajit-18-shipi-it",
+      label: "GitHub",
+      external: true,
+    },
+  ],
+},
   {
     name: "Abhinav Prajapati",
     initials: "AP",
@@ -334,6 +430,7 @@ function MemberCard({ m }: { m: Member }) {
   return (
     <motion.div
       ref={cardRef}
+      layout
       onMouseMove={onMove}
       onMouseLeave={onLeave}
       whileHover={{ y: -10 }}
@@ -435,8 +532,9 @@ function MemberCard({ m }: { m: Member }) {
               {m.projects.map((project, index) => {
                 const isOpen = openProject === index;
                 return (
-                  <div
+                  <motion.div
                     key={project.title}
+                    layout
                     className={`overflow-hidden rounded-2xl border transition duration-300 ${
                       isOpen
                         ? "border-[color:var(--a)]/65 bg-[#061A22]/85 shadow-[0_0_28px_rgba(0,217,255,0.18)]"
@@ -466,9 +564,10 @@ function MemberCard({ m }: { m: Member }) {
                       </motion.span>
                     </motion.button>
 
-                    <AnimatePresence initial={false}>
+                    <AnimatePresence initial={false} mode="popLayout">
                       {isOpen && (
                         <motion.div
+                          layout
                           initial={{ height: 0, opacity: 0, y: -8 }}
                           animate={{ height: "auto", opacity: 1, y: 0 }}
                           exit={{ height: 0, opacity: 0, y: -8 }}
@@ -511,11 +610,27 @@ function MemberCard({ m }: { m: Member }) {
                         </motion.div>
                       )}
                     </AnimatePresence>
-                  </div>
+                  </motion.div>
                 );
               })}
             </div>
           </Group>
+
+          {m.achievements && m.achievements.length > 0 && (
+            <Group label={m.achievementsLabel ?? "Achievements"}>
+              <ul className="grid gap-2 text-[#C7EEF4]/90">
+                {m.achievements.map((a) => (
+                  <li key={a.title} className="flex items-start gap-2 rounded-xl border border-[#5EF2FF]/10 bg-[#041C24]/35 px-3 py-2">
+                    <Sparkles className="mt-0.5 h-3.5 w-3.5 shrink-0" style={{ color: m.accent }} />
+                    <div>
+                      <div className="text-sm leading-relaxed">{a.title}</div>
+                      {a.year && <div className="text-[10px] text-[#9EE9F2]/70">{a.year}</div>}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </Group>
+          )}
 
           {m.highlights.length > 0 && (
             <Group label={m.highlightsLabel}>

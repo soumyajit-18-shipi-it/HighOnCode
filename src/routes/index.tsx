@@ -11,7 +11,6 @@ import { Team } from "@/components/ocean/sections/Team";
 import { Skills } from "@/components/ocean/sections/Skills";
 import { Learn } from "@/components/ocean/sections/Learn";
 import { Workflow } from "@/components/ocean/sections/Workflow";
-import { OpenSource } from "@/components/ocean/sections/OpenSource";
 import { Fun } from "@/components/ocean/sections/Fun";
 import { Footer } from "@/components/ocean/sections/Footer";
 
@@ -49,7 +48,6 @@ function Index() {
         <Learn />
         <WaveDivider />
         <Workflow />
-        <OpenSource />
         <Fun />
         <Footer />
       </main>

@@ -6,8 +6,10 @@ export function Identity() {
     <SectionShell id="identity" eyebrow="01 / Identity" title="A Hidden Research Squad">
       <div className="grid gap-6 lg:grid-cols-[1.2fr_1fr]">
         <Reveal className="relative overflow-hidden rounded-3xl glass-strong neon-border p-8 sm:p-12">
-          <div className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full"
-               style={{ background: "radial-gradient(circle, rgba(0,217,255,0.3), transparent 60%)" }} />
+          <div
+            className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full"
+            style={{ background: "radial-gradient(circle, rgba(0,217,255,0.3), transparent 60%)" }}
+          />
           <div className="relative">
             <span className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.4em] text-[#5EF2FF]/80">
               <Compass className="h-3.5 w-3.5" /> Codename
@@ -17,27 +19,30 @@ export function Identity() {
             </h3>
             <p className="mt-3 flex items-center gap-2 text-sm italic text-[#7FFFD4]">
               <Quote className="h-4 w-4 opacity-60" />
-              "Compiled deep. Deployed deeper."
+              “Compiled with precision. Engineered for depth.”
             </p>
 
             <div className="mt-8 grid gap-6 sm:grid-cols-2">
-              <Block title="Who we are">
-                Three engineers from BITS Pilani exploring the trench between
-                shipping product and inventing systems — frontend craft, secure
-                infrastructure, and intelligent machines.
+              <Block title="Who We Are">
+                We are a team of three engineering students from BITS Pilani, driven by a shared interest in building thoughtful, scalable, and impactful technology. Our combined interests span frontend engineering, intelligent systems, software architecture, cybersecurity, and modern product development.
+                <br />
+                <br />
+                We enjoy working at the intersection of design, engineering, and problem solving — transforming ideas into reliable systems with strong technical foundations.
               </Block>
-              <Block title="Why HighOnCode">
-                Because the only altitude we chase is the one you reach after
-                seventy-two hours of pair programming, somewhere between
-                caffeine and a clean git history.
+
+              <Block title="Why “HighOnCode”">
+                The name reflects our enthusiasm for building and exploring technology beyond the surface level. It represents long collaborative sessions, deep technical discussions, iterative problem-solving, and the satisfaction of creating systems that are both elegant and efficient.
+                <br />
+                <br />
+                For us, coding is not just implementation — it is experimentation, creativity, and continuous learning.
               </Block>
+
               <Block title="Mission">
-                Build software that behaves like deep water — calm on the
-                surface, immensely powerful underneath.
+                To build software that combines simplicity in experience with depth in engineering — systems that appear seamless to users while being robust, scalable, and intelligently designed underneath.
               </Block>
-              <Block title="Fun fact">
-                Our combined Spotify playlist has more lo-fi than the
-                Marianas trench has unexplored species.
+
+              <Block title="Fun Fact">
+                Our shared workspace runs on equal parts curiosity, late-night debugging sessions, and an ever-growing lo-fi playlist that has become the unofficial soundtrack of our development process.
               </Block>
             </div>
           </div>
@@ -45,12 +50,15 @@ export function Identity() {
 
         <div className="flex flex-col gap-6">
           <Reveal delay={0.1} className="relative overflow-hidden rounded-3xl glass neon-hover p-6">
-            <span className="text-[10px] uppercase tracking-[0.4em] text-[#5EF2FF]/80">Squad readout</span>
+            <span className="text-[10px] uppercase tracking-[0.4em] text-[#5EF2FF]/80">Squad Readout</span>
             <ul className="mt-4 space-y-3 text-sm">
-              <Stat label="Crew" value="03 engineers" />
-              <Stat label="Origin" value="BITS Pilani" />
-              <Stat label="Stack" value="Web · AI · Security" />
-              <Stat label="Status" value="Onboarding mission" tone="live" />
+              <Stat label="Crew" value="3 Engineering Students" />
+              <Stat label="Institution" value="BITS Pilani" />
+              <Stat
+                label="Core Domains"
+                value="Web Development · Artificial Intelligence · Cybersecurity · Software Systems"
+              />
+              <Stat label="Current Status" value="Internship Onboarding Team" tone="live" />
             </ul>
           </Reveal>
 
@@ -58,13 +66,26 @@ export function Identity() {
             <span className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.4em] text-[#5EF2FF]/80">
               <Sparkles className="h-3.5 w-3.5" /> Operating Principles
             </span>
-            <ul className="mt-4 grid grid-cols-2 gap-2 text-xs">
-              {["Ship fast", "Read code", "Question defaults", "Document well", "Help teammates", "Stay curious"].map((p) => (
-                <li key={p} className="rounded-lg border border-[#5EF2FF]/15 bg-[#041C24]/40 px-3 py-2 text-[#B6EAF2]">
-                  {p}
-                </li>
-              ))}
-            </ul>
+            <div className="mt-4 grid gap-3 text-sm">
+              <Block title="Build with Purpose">
+                We focus on creating solutions that are functional, scalable, and meaningful rather than over-engineered.
+              </Block>
+              <Block title="Learn Continuously">
+                Every project is an opportunity to explore new technologies, improve collaboration, and strengthen engineering fundamentals.
+              </Block>
+              <Block title="Collaborate Transparently">
+                We value open communication, peer reviews, documentation, and knowledge sharing throughout the development process.
+              </Block>
+              <Block title="Question Assumptions">
+                We believe strong systems emerge from curiosity, experimentation, and critical thinking.
+              </Block>
+              <Block title="Support the Team">
+                We prioritize reliability, accountability, and helping one another grow both technically and professionally.
+              </Block>
+              <Block title="Stay Adaptable">
+                Technology evolves rapidly, and we aim to remain flexible, curious, and ready to learn.
+              </Block>
+            </div>
           </Reveal>
         </div>
       </div>
@@ -86,7 +107,9 @@ function Stat({ label, value, tone }: { label: string; value: string; tone?: "li
     <li className="flex items-center justify-between border-b border-[#5EF2FF]/10 pb-2 last:border-none">
       <span className="text-[10px] uppercase tracking-[0.3em] text-[#5EF2FF]/70">{label}</span>
       <span className={`font-display text-sm ${tone === "live" ? "text-[#7FFFD4]" : "text-white"}`}>
-        {tone === "live" && <span className="mr-2 inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-[#7FFFD4] shadow-[0_0_8px_#7FFFD4]" />}
+        {tone === "live" && (
+          <span className="mr-2 inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-[#7FFFD4] shadow-[0_0_8px_#7FFFD4]" />
+        )}
         {value}
       </span>
     </li>

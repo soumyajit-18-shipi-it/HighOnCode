@@ -15,7 +15,7 @@ export function Skills() {
   return (
     <SectionShell id="skills" eyebrow="03 / Skills Map" title="Sonar of Capabilities">
       <div className="grid gap-8 lg:grid-cols-[1.1fr_1fr]">
-        <Reveal className="relative grid place-items-center overflow-hidden rounded-3xl glass neon-border p-8">
+        <Reveal className="relative grid place-items-center overflow-visible rounded-3xl glass neon-border p-8">
           <Radar />
         </Reveal>
         <div className="space-y-4">
@@ -93,7 +93,9 @@ function Radar() {
 
       {domains.map((d, i) => {
         const [x, y] = pt(i, 100);
-        const [px, py] = pt(i, 116);
+        // position labels slightly closer to center to avoid clipping
+        // (previously used 116 which pushed some labels outside the SVG/parent)
+        const [px, py] = pt(i, 110);
         return (
           <g key={d.name}>
             <circle cx={x} cy={y} r="3" fill="#7FFFD4" style={{ filter: "drop-shadow(0 0 4px #7FFFD4)" }} />

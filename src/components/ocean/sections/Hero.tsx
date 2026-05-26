@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ChevronDown, Anchor } from "lucide-react";
+import swechaLogo from "@/swecha_logo.png";
 
 export function Hero() {
   return (
@@ -15,7 +16,7 @@ export function Hero() {
           transition={{ duration: 1.2, ease: [0.2, 0.8, 0.2, 1] }}
           className="mb-8"
         >
-          <Emblem />
+          <img src={swechaLogo} alt="Swecha logo" className="h-28 w-28 rounded-full object-cover" />
         </motion.div>
 
         <motion.p
@@ -118,29 +119,4 @@ function MagneticButton({ href, children }: { href: string; children: React.Reac
   );
 }
 
-function Emblem() {
-  return (
-    <div className="relative grid h-28 w-28 place-items-center">
-      <div className="absolute inset-0 rounded-full animate-spin-slow"
-           style={{ background: "conic-gradient(from 0deg, transparent, #00D9FF, transparent, #7FFFD4, transparent)", filter: "blur(2px)", opacity: 0.7 }} />
-      <div className="absolute inset-1 rounded-full bg-[#020B12]" />
-      <div className="absolute inset-2 rounded-full border border-[#5EF2FF]/30" />
-      <svg viewBox="0 0 100 100" className="relative h-16 w-16">
-        <defs>
-          <linearGradient id="emb" x1="0" x2="1" y1="0" y2="1">
-            <stop offset="0%" stopColor="#7FFFD4" />
-            <stop offset="100%" stopColor="#00D9FF" />
-          </linearGradient>
-        </defs>
-        <path
-          d="M50 12 Q70 30 70 50 Q70 75 50 88 Q30 75 30 50 Q30 30 50 12 Z"
-          fill="none" stroke="url(#emb)" strokeWidth="2"
-          style={{ filter: "drop-shadow(0 0 6px #00D9FF)" }}
-        />
-        <path d="M30 55 Q50 40 70 55" stroke="#5EF2FF" strokeWidth="1.5" fill="none" opacity="0.7" />
-        <path d="M30 65 Q50 50 70 65" stroke="#5EF2FF" strokeWidth="1.2" fill="none" opacity="0.5" />
-        <circle cx="50" cy="50" r="3" fill="#7FFFD4" style={{ filter: "drop-shadow(0 0 6px #7FFFD4)" }} />
-      </svg>
-    </div>
-  );
-}
+// Emblem replaced by swecha logo image above

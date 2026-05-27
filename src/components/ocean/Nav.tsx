@@ -56,10 +56,9 @@ export function Nav() {
             <a
               key={l.id}
               href={`#${l.id}`}
-              className="relative rounded-lg px-3 py-1.5 text-xs uppercase tracking-widest text-[#9EE9F2]/72 transition hover:text-[#7FFFD4]"
+              className="link-underline relative rounded-lg px-3 py-1.5 text-xs uppercase tracking-widest text-foreground-deep transition-colors duration-300 hover:text-[#E6FBFF]"
             >
-              <span className="relative z-10">{l.label}</span>
-              <span className="absolute inset-0 rounded-lg opacity-0 transition hover:opacity-100" style={{ background: "linear-gradient(180deg, rgba(0,217,255,0.1), transparent)" }} />
+              {l.label}
             </a>
           ))}
         </nav>

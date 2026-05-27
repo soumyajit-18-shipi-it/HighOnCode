@@ -90,7 +90,7 @@ export function Hero() {
         data-hero-reveal
         className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-[#8bd8dc]/60 transition hover:text-[#a4e0cf]"
       >
-        <span className="font-display text-[10px] uppercase tracking-[0.35em]">Descend</span>
+        <span className="font-display text-[10px] uppercase tracking-[0.35em]"></span>
         <ChevronDown className="h-5 w-5 animate-bounce" />
       </a>
     </section>

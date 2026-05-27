@@ -44,11 +44,11 @@ export function OceanBackground() {
       />
       <div
         className="absolute top-1/2 -right-40 h-[32rem] w-[32rem] rounded-full animate-pulse-glow"
-        style={{ background: "radial-gradient(circle, rgba(127,255,212,0.85) 0%, transparent 62%)", opacity: 0.06, animationDelay: "2s" }}
+        style={{ background: "radial-gradient(circle, rgba(255,122,138,0.7) 0%, transparent 62%)", opacity: 0.05, animationDelay: "2s" }}
       />
       <div
         className="absolute bottom-0 left-0 h-[36rem] w-[36rem] rounded-full animate-pulse-glow"
-        style={{ background: "radial-gradient(circle, rgba(10,74,90,0.85) 0%, transparent 62%)", opacity: 0.18, animationDelay: "4s" }}
+        style={{ background: "radial-gradient(circle, rgba(107,91,255,0.55) 0%, transparent 62%)", opacity: 0.09, animationDelay: "4s" }}
       />
 
       <div className="ocean-vignette absolute inset-0" />

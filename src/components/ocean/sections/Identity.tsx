@@ -124,10 +124,19 @@ export function SectionShell({
 }: { id: string; eyebrow: string; title: string; children: React.ReactNode }) {
   return (
     <section id={id} className="relative mx-auto max-w-7xl px-6 py-28 sm:py-32">
-      <Reveal>
-        <p className="mb-3 text-[10px] uppercase tracking-[0.5em] text-[#5EF2FF]/70">{eyebrow}</p>
-        <h2 className="mb-12 max-w-3xl font-display text-3xl font-bold tracking-tight text-white text-glow sm:text-5xl">
-          {title}
+      <Reveal variant="left">
+        <p className="mb-3 flex items-center gap-3 text-[10px] uppercase tracking-[0.5em] text-[#FFB3A7]/80">
+          <span className="h-px w-8 bg-gradient-to-r from-transparent to-[#FF7A8A]/60" />
+          {eyebrow}
+        </p>
+      </Reveal>
+      <Reveal variant="up" delay={0.1}>
+        <h2 className="mb-12 max-w-3xl font-display text-3xl font-bold tracking-tight text-white sm:text-5xl">
+          {title.split(" ").map((w, i, arr) => (
+            <span key={i} className={i === arr.length - 1 ? "gradient-text-coral" : ""}>
+              {w}{i < arr.length - 1 ? " " : ""}
+            </span>
+          ))}
         </h2>
       </Reveal>
       {children}

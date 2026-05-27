@@ -19,7 +19,7 @@ export function Learn() {
       <div className="relative">
         {/* glowing path */}
         <div className="pointer-events-none absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 md:block"
-             style={{ background: "linear-gradient(180deg, transparent, rgba(0,217,255,0.8), rgba(127,255,212,0.5), transparent)", boxShadow: "0 0 10px rgba(0,217,255,0.18)" }} />
+             style={{ background: "linear-gradient(180deg, transparent, rgba(99,216,227,0.65), rgba(164,224,207,0.4), transparent)", boxShadow: "0 0 10px rgba(99,216,227,0.12)" }} />
 
         <div className="grid gap-6 md:grid-cols-2">
           {goals.map((g, i) => (
@@ -28,17 +28,17 @@ export function Learn() {
                 <div className="group relative overflow-hidden rounded-2xl glass neon-hover p-6">
                   <span
                     className="pointer-events-none absolute -right-10 -top-10 h-24 w-24 rounded-full opacity-40 transition group-hover:opacity-75"
-                    style={{ background: "radial-gradient(circle, rgba(0,217,255,0.18), transparent 62%)", filter: "blur(14px)" }}
+                    style={{ background: "radial-gradient(circle, rgba(99,216,227,0.16), transparent 62%)", filter: "blur(14px)" }}
                   />
                   <div className={`flex items-start gap-4 ${i % 2 === 0 ? "md:flex-row-reverse md:text-right" : ""}`}>
                       <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-[#5EF2FF]/22 bg-[#020B12]/60"
-                        style={{ boxShadow: "inset 0 0 14px rgba(0,217,255,0.08)" }}>
-                      <g.icon className="h-5 w-5 text-[#7FFFD4]" strokeWidth={1.5} />
+                        style={{ boxShadow: "inset 0 0 14px rgba(99,216,227,0.06)" }}>
+                      <g.icon className="h-5 w-5 text-[#a4e0cf]" strokeWidth={1.5} />
                     </span>
                     <div className="min-w-0">
-                      <div className="text-[10px] uppercase tracking-[0.35em] text-[#5EF2FF]/70">Mission {String(i + 1).padStart(2, "0")}</div>
-                      <h3 className="mt-1 font-display text-lg font-semibold text-white">{g.title}</h3>
-                      <p className="mt-1 text-sm leading-relaxed text-[#C7EEF4]/85">{g.desc}</p>
+                      <div className="font-display text-[10px] uppercase tracking-[0.3em] text-[#8bd8dc]/70">Mission {String(i + 1).padStart(2, "0")}</div>
+                      <h3 className="mt-1 font-display text-lg font-semibold tracking-[0.02em] text-white">{g.title}</h3>
+                      <p className="mt-1 text-sm leading-relaxed text-[#c3dadd]/85">{g.desc}</p>
                     </div>
                   </div>
                 </div>

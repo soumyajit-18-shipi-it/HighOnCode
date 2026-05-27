@@ -48,8 +48,8 @@ const team: Member[] = [
   role: "AI / ML Engineer · Frontend Developer",
   tagline:
     "B.E. Computer Science, BITS Pilani '28 · State Board Science Topper",
-  accent: "#5EF2FF",
-  accentLabel: "Neon Cyan",
+  accent: "#63d8e3",
+  accentLabel: "Deep Aqua",
   signalId: "SR",
 
   about:
@@ -199,8 +199,8 @@ const team: Member[] = [
     initials: "AP",
     college: "BITS Pilani",
     role: "Software Engineering & Security Enthusiast",
-    accent: "#67F7E5",
-    accentLabel: "Electric Aqua",
+    accent: "#8bd8dc",
+    accentLabel: "Muted Aqua",
     signalId: "AP",
     about:
       "Dual degree student focused on software engineering, accessibility-driven systems, and practical product development. Interested in building reliable software systems while exploring cybersecurity and full-stack technologies.",
@@ -238,8 +238,8 @@ const team: Member[] = [
     initials: "AA",
     college: "BITS Pilani",
     role: "AI & Machine Learning Developer",
-    accent: "#47EFD7",
-    accentLabel: "Bioluminescent Teal",
+    accent: "#a4e0cf",
+    accentLabel: "Ocean Teal",
     signalId: "AA",
     about:
       "Computer Science student focused on intelligent systems, machine learning, blockchain technologies, and AI-driven software development. Passionate about combining analytical thinking with practical engineering to build impactful systems.",
@@ -331,71 +331,71 @@ export function Team() {
     <SectionShell id="team" eyebrow="02 / The Crew" title="Three Signals Beneath the Surface">
       <div ref={sectionRef} className="relative">
         <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden rounded-[32px]">
-          <div className="absolute left-1/2 top-0 h-56 w-[70%] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(0,217,255,0.18),transparent_70%)] blur-3xl" />
-          <div className="absolute -left-10 top-24 h-40 w-40 rounded-full bg-[#7FFFD4]/10 blur-3xl" />
-          <div className="absolute -right-10 top-36 h-56 w-56 rounded-full bg-[#5EF2FF]/10 blur-3xl" />
+          <div className="absolute left-1/2 top-0 h-56 w-[70%] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(99,216,227,0.12),transparent_70%)] blur-3xl" />
+          <div className="absolute -left-10 top-24 h-40 w-40 rounded-full bg-[#a4e0cf]/10 blur-3xl" />
+          <div className="absolute -right-10 top-36 h-56 w-56 rounded-full bg-[#8bd8dc]/10 blur-3xl" />
           <motion.div
             aria-hidden
             className="absolute inset-0 opacity-20"
             animate={{ x: [0, 8, 0], y: [0, -6, 0] }}
             transition={{ duration: 9, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
           >
-            <div className="absolute left-0 top-12 h-px w-full bg-gradient-to-r from-transparent via-[#5EF2FF]/45 to-transparent" />
-            <div className="absolute left-0 top-28 h-px w-full bg-gradient-to-r from-transparent via-[#7FFFD4]/25 to-transparent" />
-            <div className="absolute left-0 top-44 h-px w-full bg-gradient-to-r from-transparent via-[#5EF2FF]/18 to-transparent" />
+            <div className="absolute left-0 top-12 h-px w-full bg-gradient-to-r from-transparent via-[#8bd8dc]/40 to-transparent" />
+            <div className="absolute left-0 top-28 h-px w-full bg-gradient-to-r from-transparent via-[#a4e0cf]/22 to-transparent" />
+            <div className="absolute left-0 top-44 h-px w-full bg-gradient-to-r from-transparent via-[#8bd8dc]/16 to-transparent" />
           </motion.div>
           <motion.div
             aria-hidden
-            className="absolute bottom-8 left-8 h-14 w-14 rounded-full border border-[#5EF2FF]/10"
+            className="absolute bottom-8 left-8 h-14 w-14 rounded-full border border-[#8bd8dc]/10"
             animate={{ scale: [1, 1.3, 1], opacity: [0.25, 0.5, 0.25] }}
             transition={{ duration: 6, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
           />
           <motion.div
             aria-hidden
-            className="absolute bottom-8 right-8 h-10 w-10 rounded-full border border-[#7FFFD4]/10"
+            className="absolute bottom-8 right-8 h-10 w-10 rounded-full border border-[#a4e0cf]/10"
             animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.45, 0.2] }}
             transition={{ duration: 7, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
           />
         </div>
 
         <div className="crew-intro relative mb-8 max-w-4xl space-y-4">
-          <div className="flex flex-wrap items-center gap-3 text-[10px] uppercase tracking-[0.5em] text-[#5EF2FF]/70">
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-[#7FFFD4] shadow-[0_0_12px_#7FFFD4]">
-              <span className="absolute inset-0 rounded-full bg-[#7FFFD4]/40 animate-ping" />
+          <div className="flex flex-wrap items-center gap-3 font-display text-[10px] uppercase tracking-[0.42em] text-[#8bd8dc]/70">
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-[#a4e0cf] shadow-[0_0_12px_#a4e0cf]">
+              <span className="absolute inset-0 rounded-full bg-[#a4e0cf]/40 animate-ping" />
             </span>
             Live Signal Archive
-            <span className="rounded-full border border-[#5EF2FF]/15 bg-[#041C24]/55 px-3 py-1 text-[9px] tracking-[0.35em] text-[#9EE9F2]/80">
+            <span className="rounded-full border border-[#8bd8dc]/15 bg-[#041822]/55 px-3 py-1 text-[9px] tracking-[0.28em] text-[#a9c8cc]/80">
               SIGNAL STABLE
             </span>
           </div>
 
-          <div className="relative overflow-hidden rounded-[28px] border border-[#5EF2FF]/12 bg-[#04151C]/55 px-6 py-5 backdrop-blur-xl sm:px-8">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,217,255,0.18),transparent_55%)]" />
+          <div className="relative overflow-hidden rounded-[28px] border border-[#8bd8dc]/12 bg-[#04151C]/55 px-6 py-5 backdrop-blur-xl sm:px-8">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(99,216,227,0.12),transparent_55%)]" />
             <motion.div
               aria-hidden
-              className="absolute left-1/2 top-1/2 h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#5EF2FF]/12"
+              className="absolute left-1/2 top-1/2 h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full border border-[#8bd8dc]/12"
               animate={{ scale: [1, 1.12, 1], opacity: [0.15, 0.35, 0.15] }}
               transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
             />
-            <p className="relative text-base font-medium leading-relaxed text-[#C7EEF4]/88 sm:text-lg">
+            <p className="relative text-base font-medium leading-relaxed text-[#c3dadd]/88 sm:text-lg">
               Three engineers from BITS Pilani exploring scalable systems, intelligent software, AI-driven products,
               and modern digital experiences beneath the surface of technology.
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3 text-[10px] uppercase tracking-[0.35em] text-[#9EE9F2]/72">
-            <span className="rounded-full border border-[#5EF2FF]/15 bg-[#041C24]/50 px-3 py-1">LIVE · highoncode/crew</span>
-            <span className="rounded-full border border-[#5EF2FF]/15 bg-[#041C24]/50 px-3 py-1">SYNC STATUS · ACTIVE</span>
-            <span className="rounded-full border border-[#5EF2FF]/15 bg-[#041C24]/50 px-3 py-1">UTC · Dynamic live clock</span>
+          <div className="flex flex-wrap items-center gap-3 font-display text-[10px] uppercase tracking-[0.28em] text-[#a9c8cc]/72">
+            <span className="rounded-full border border-[#8bd8dc]/15 bg-[#041822]/50 px-3 py-1">LIVE · highoncode/crew</span>
+            <span className="rounded-full border border-[#8bd8dc]/15 bg-[#041822]/50 px-3 py-1">SYNC STATUS · ACTIVE</span>
+            <span className="rounded-full border border-[#8bd8dc]/15 bg-[#041822]/50 px-3 py-1">UTC · Dynamic live clock</span>
           </div>
 
-          <div className="relative overflow-hidden rounded-[24px] border border-[#5EF2FF]/10 bg-[#020B12]/60 px-4 py-3">
-            <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent,rgba(0,217,255,0.16),transparent)] opacity-70" />
-            <div className="relative flex items-center gap-3 text-[10px] uppercase tracking-[0.35em] text-[#B6EAF2]/80">
-              <span className="h-2 w-2 rounded-full bg-[#7FFFD4] shadow-[0_0_10px_#7FFFD4]" />
-              <span className="font-mono text-[#9EE9F2]/70">Mission feed</span>
-              <span className="inline-flex items-center gap-1 rounded-full border border-[#5EF2FF]/15 bg-[#04151C]/80 px-2 py-1 text-[#5EF2FF]/80">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#7FFFD4] animate-pulse" />
+          <div className="relative overflow-hidden rounded-[24px] border border-[#8bd8dc]/10 bg-[#020B12]/60 px-4 py-3">
+            <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent,rgba(99,216,227,0.12),transparent)] opacity-70" />
+            <div className="relative flex items-center gap-3 font-display text-[10px] uppercase tracking-[0.28em] text-[#c3dadd]/80">
+              <span className="h-2 w-2 rounded-full bg-[#a4e0cf] shadow-[0_0_10px_#a4e0cf]" />
+              <span className="font-mono text-[#a9c8cc]/70">Mission feed</span>
+              <span className="inline-flex items-center gap-1 rounded-full border border-[#8bd8dc]/15 bg-[#04151C]/80 px-2 py-1 text-[#8bd8dc]/80">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#a4e0cf] animate-pulse" />
                 Knowledge shared accelerates the system
               </span>
             </div>
@@ -438,12 +438,12 @@ function MemberCard({ m }: { m: Member }) {
         transform: `perspective(1400px) rotateY(${pos.x * 10}deg) rotateX(${-pos.y * 10}deg) translateY(0)`,
         transition: "transform 200ms ease-out",
       }}
-      className="crew-card group relative h-full overflow-hidden rounded-[30px] border border-[#5EF2FF]/14 bg-[#04151C]/72 p-6 shadow-[0_0_0_1px_rgba(94,242,255,0.04),0_20px_80px_rgba(0,0,0,0.38)] backdrop-blur-xl sm:p-7"
+      className="crew-card group relative h-full overflow-hidden rounded-[30px] border border-[#8bd8dc]/14 bg-[#04151C]/72 p-6 shadow-[0_0_0_1px_rgba(99,216,227,0.04),0_20px_80px_rgba(0,0,0,0.38)] backdrop-blur-xl sm:p-7"
     >
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(0,217,255,0.14),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(127,255,212,0.08),transparent_32%)] opacity-80" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(99,216,227,0.12),transparent_30%),radial-gradient(circle_at_bottom_right,rgba(164,224,207,0.07),transparent_32%)] opacity-80" />
       <div
         className="pointer-events-none absolute inset-0 rounded-[30px] opacity-60 transition duration-500 group-hover:opacity-100"
-        style={{ background: "linear-gradient(145deg, rgba(0,217,255,0.08), transparent 28%, rgba(127,255,212,0.06) 70%, transparent)" }}
+        style={{ background: "linear-gradient(145deg, rgba(99,216,227,0.06), transparent 28%, rgba(164,224,207,0.05) 70%, transparent)" }}
       />
       <div
         className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full opacity-55 transition duration-700 group-hover:opacity-90"
@@ -457,21 +457,21 @@ function MemberCard({ m }: { m: Member }) {
         }}
       />
       <motion.div
-        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#5EF2FF]/80 to-transparent opacity-80"
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#8bd8dc]/70 to-transparent opacity-80"
         animate={{ opacity: [0.45, 0.95, 0.45] }}
         transition={{ duration: 3.6, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
       />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#5EF2FF]/20 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#8bd8dc]/20 to-transparent" />
 
       <motion.div
         aria-hidden
-        className="pointer-events-none absolute -left-12 top-16 h-24 w-24 rounded-full border border-[#5EF2FF]/10"
+        className="pointer-events-none absolute -left-12 top-16 h-24 w-24 rounded-full border border-[#8bd8dc]/10"
         animate={{ scale: [0.9, 1.05, 0.9], opacity: [0.12, 0.28, 0.12] }}
         transition={{ duration: 8, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
       />
       <motion.div
         aria-hidden
-        className="pointer-events-none absolute bottom-12 right-10 h-8 w-8 rounded-full bg-[#7FFFD4]/10 blur-sm"
+        className="pointer-events-none absolute bottom-12 right-10 h-8 w-8 rounded-full bg-[#a4e0cf]/10 blur-sm"
         animate={{ y: [0, -8, 0], x: [0, 5, 0] }}
         transition={{ duration: 6, repeat: Number.POSITIVE_INFINITY, ease: "easeInOut" }}
       />
@@ -483,7 +483,7 @@ function MemberCard({ m }: { m: Member }) {
         <Avatar initials={m.initials} accent={m.accent} />
         <div className="min-w-0 flex-1 pt-1">
           <div className="flex flex-wrap items-center gap-2">
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#5EF2FF]/20 bg-[#041C24]/70 px-2.5 py-1 text-[10px] uppercase tracking-[0.3em] text-[#9EE9F2]">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#8bd8dc]/20 bg-[#041822]/70 px-2.5 py-1 text-[10px] uppercase tracking-[0.26em] text-[#a9c8cc]">
               <span className="h-1.5 w-1.5 rounded-full animate-pulse" style={{ background: m.accent, boxShadow: `0 0 10px ${m.accent}` }} />
               Signal {m.signalId}
             </span>
@@ -505,9 +505,9 @@ function MemberCard({ m }: { m: Member }) {
         <p className="max-w-prose text-sm leading-relaxed text-[#C7EEF4]/92 sm:text-[15px]">{m.about}</p>
 
         <div className="flex items-center gap-3">
-          <span className="h-px flex-1 bg-gradient-to-r from-transparent via-[#5EF2FF]/55 to-transparent" />
-          <span className="text-[10px] uppercase tracking-[0.35em] text-[#5EF2FF]/60">Core Signal</span>
-          <span className="h-px flex-1 bg-gradient-to-r from-transparent via-[#5EF2FF]/55 to-transparent" />
+          <span className="h-px flex-1 bg-gradient-to-r from-transparent via-[#8bd8dc]/55 to-transparent" />
+          <span className="font-display text-[10px] uppercase tracking-[0.3em] text-[#8bd8dc]/60">Core Signal</span>
+          <span className="h-px flex-1 bg-gradient-to-r from-transparent via-[#8bd8dc]/55 to-transparent" />
         </div>
 
         <div className="grid gap-4">
@@ -537,8 +537,8 @@ function MemberCard({ m }: { m: Member }) {
                     layout
                     className={`overflow-hidden rounded-2xl border transition duration-300 ${
                       isOpen
-                        ? "border-[color:var(--a)]/65 bg-[#061A22]/85 shadow-[0_0_28px_rgba(0,217,255,0.18)]"
-                        : "border-[#5EF2FF]/10 bg-[#041C24]/35 hover:border-[color:var(--a)]/45 hover:bg-[#061A22]/70"
+                        ? "border-[color:var(--a)]/55 bg-[#061A22]/85 shadow-[0_0_28px_rgba(99,216,227,0.12)]"
+                        : "border-[#8bd8dc]/10 bg-[#041C24]/35 hover:border-[color:var(--a)]/45 hover:bg-[#061A22]/70"
                     }`}
                     style={{ ["--a" as string]: m.accent }}
                   >
@@ -555,7 +555,7 @@ function MemberCard({ m }: { m: Member }) {
                         </div>
                         <div className="mt-1 flex items-center gap-2 text-[10px] uppercase tracking-[0.28em] text-[#9EE9F2]/65">
                           <span>{project.status}</span>
-                          <span className="h-px w-6 bg-[#5EF2FF]/20" />
+                          <span className="h-px w-6 bg-[#8bd8dc]/20" />
                           <span>{project.progress}% complete</span>
                         </div>
                       </div>
@@ -574,8 +574,8 @@ function MemberCard({ m }: { m: Member }) {
                           transition={{ duration: 0.3, ease: "easeInOut" }}
                           className="overflow-hidden"
                         >
-                          <div className="relative border-t border-[#5EF2FF]/10 px-4 py-4 text-sm leading-relaxed text-[#C7EEF4]/90">
-                            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(0,217,255,0.12),transparent_45%)]" />
+                          <div className="relative border-t border-[#8bd8dc]/10 px-4 py-4 text-sm leading-relaxed text-[#c3dadd]/90">
+                            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(99,216,227,0.08),transparent_45%)]" />
                             <div className="relative space-y-4">
                               <p>{project.description}</p>
 
@@ -583,7 +583,7 @@ function MemberCard({ m }: { m: Member }) {
                                 {project.stack.map((stackItem) => (
                                   <span
                                     key={stackItem}
-                                    className="rounded-full border border-[#5EF2FF]/12 bg-[#020B12]/70 px-2.5 py-1 text-[10px] uppercase tracking-[0.2em] text-[#B6EAF2]"
+                                    className="rounded-full border border-[#8bd8dc]/12 bg-[#020B12]/70 px-2.5 py-1 text-[10px] uppercase tracking-[0.2em] text-[#c3dadd]"
                                   >
                                     {stackItem}
                                   </span>
@@ -601,7 +601,7 @@ function MemberCard({ m }: { m: Member }) {
                                     animate={{ width: `${project.progress}%` }}
                                     transition={{ duration: 0.9, ease: "easeOut" }}
                                     className="h-full rounded-full"
-                                    style={{ background: `linear-gradient(90deg, ${m.accent}, #7FFFD4)` }}
+                                    style={{ background: `linear-gradient(90deg, ${m.accent}, #a4e0cf)` }}
                                   />
                                 </div>
                               </div>
@@ -620,7 +620,7 @@ function MemberCard({ m }: { m: Member }) {
             <Group label={m.achievementsLabel ?? "Achievements"}>
               <ul className="grid gap-2 text-[#C7EEF4]/90">
                 {m.achievements.map((a) => (
-                  <li key={a.title} className="flex items-start gap-2 rounded-xl border border-[#5EF2FF]/10 bg-[#041C24]/35 px-3 py-2">
+                  <li key={a.title} className="flex items-start gap-2 rounded-xl border border-[#8bd8dc]/10 bg-[#041C24]/35 px-3 py-2">
                     <Sparkles className="mt-0.5 h-3.5 w-3.5 shrink-0" style={{ color: m.accent }} />
                     <div>
                       <div className="text-sm leading-relaxed">{a.title}</div>
@@ -636,7 +636,7 @@ function MemberCard({ m }: { m: Member }) {
             <Group label={m.highlightsLabel}>
               <ul className="grid gap-2 text-[#C7EEF4]/90">
                 {m.highlights.map((item) => (
-                  <li key={item} className="flex items-start gap-2 rounded-xl border border-[#5EF2FF]/10 bg-[#041C24]/35 px-3 py-2">
+                  <li key={item} className="flex items-start gap-2 rounded-xl border border-[#8bd8dc]/10 bg-[#041C24]/35 px-3 py-2">
                     <Sparkles className="mt-0.5 h-3.5 w-3.5 shrink-0" style={{ color: m.accent }} />
                     <span className="text-sm leading-relaxed">{item}</span>
                   </li>
@@ -655,8 +655,8 @@ function MemberCard({ m }: { m: Member }) {
         </div>
       </div>
 
-      <div className="relative mt-6 flex items-center justify-between gap-4 border-t border-[#5EF2FF]/15 pt-4">
-        <span className="text-[10px] uppercase tracking-[0.35em] text-[#5EF2FF]/70">Signal</span>
+      <div className="relative mt-6 flex items-center justify-between gap-4 border-t border-[#8bd8dc]/15 pt-4">
+        <span className="font-display text-[10px] uppercase tracking-[0.3em] text-[#8bd8dc]/70">Signal</span>
         <div className="flex items-center gap-2">
           {m.socials.map(({ icon: Icon, href, label, external }) => (
             <a
@@ -666,7 +666,7 @@ function MemberCard({ m }: { m: Member }) {
               title={label}
               target={external ? "_blank" : undefined}
               rel={external ? "noreferrer" : undefined}
-              className="group grid h-10 w-10 place-items-center rounded-full border border-[#5EF2FF]/25 bg-[#041C24]/70 text-[#B6EAF2] transition duration-300 hover:scale-110 hover:border-[color:var(--a)] hover:text-white hover:shadow-[0_0_24px_var(--a)]"
+              className="group grid h-10 w-10 place-items-center rounded-full border border-[#8bd8dc]/25 bg-[#041C24]/70 text-[#c3dadd] transition duration-300 hover:scale-110 hover:border-[color:var(--a)] hover:text-white hover:shadow-[0_0_24px_var(--a)]"
               style={{ ["--a" as string]: m.accent }}
             >
               <Icon className="h-4 w-4 transition duration-300 group-hover:scale-110" />
@@ -675,8 +675,8 @@ function MemberCard({ m }: { m: Member }) {
         </div>
       </div>
 
-      <div className="pointer-events-none absolute left-6 top-20 h-px w-24 bg-gradient-to-r from-transparent via-[#5EF2FF]/40 to-transparent" />
-      <div className="pointer-events-none absolute right-8 top-28 h-px w-20 bg-gradient-to-r from-transparent via-[#7FFFD4]/30 to-transparent" />
+      <div className="pointer-events-none absolute left-6 top-20 h-px w-24 bg-gradient-to-r from-transparent via-[#8bd8dc]/35 to-transparent" />
+      <div className="pointer-events-none absolute right-8 top-28 h-px w-20 bg-gradient-to-r from-transparent via-[#a4e0cf]/24 to-transparent" />
     </motion.div>
   );
 }
@@ -684,8 +684,8 @@ function MemberCard({ m }: { m: Member }) {
 function Group({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div className="space-y-2">
-      <div className="flex items-center gap-3 text-[10px] uppercase tracking-[0.35em] text-[#5EF2FF]/65">
-        <span className="h-px w-8 bg-gradient-to-r from-[#5EF2FF]/70 to-transparent" />
+      <div className="flex items-center gap-3 font-display text-[10px] uppercase tracking-[0.28em] text-[#8bd8dc]/65">
+        <span className="h-px w-8 bg-gradient-to-r from-[#8bd8dc]/70 to-transparent" />
         {label}
       </div>
       {children}
@@ -698,7 +698,7 @@ function Pill({ label, accent, tone = "default" }: { label: string; accent: stri
     <span
       className={`rounded-full border px-3 py-1 text-[10px] uppercase tracking-[0.18em] transition duration-300 hover:-translate-y-0.5 hover:shadow-[0_0_18px_var(--a)] ${
         tone === "subtle"
-          ? "border-[#5EF2FF]/12 bg-[#041C24]/35 text-[#B6EAF2]/90 hover:text-white"
+          ? "border-[#8bd8dc]/12 bg-[#041C24]/35 text-[#c3dadd]/90 hover:text-white"
           : "border-[color:var(--a)]/35 bg-[#041C24]/50 text-white hover:border-[color:var(--a)]"
       }`}
       style={{ ["--a" as string]: accent, backgroundColor: tone === "subtle" ? undefined : `${accent}1F` }}

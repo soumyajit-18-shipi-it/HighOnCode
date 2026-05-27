@@ -8,16 +8,16 @@ export function Identity() {
         <Reveal className="relative overflow-hidden rounded-3xl glass-strong neon-border p-8 sm:p-12">
           <div
             className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full"
-            style={{ background: "radial-gradient(circle, rgba(0,217,255,0.3), transparent 60%)" }}
+            style={{ background: "radial-gradient(circle, rgba(99,216,227,0.18), transparent 60%)" }}
           />
           <div className="relative">
-            <span className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.4em] text-[#5EF2FF]/80">
+            <span className="inline-flex items-center gap-2 font-display text-[10px] uppercase tracking-[0.38em] text-[#8bd8dc]/80">
               <Compass className="h-3.5 w-3.5" /> Codename
             </span>
-            <h3 className="mt-3 font-display text-5xl font-bold tracking-tight text-white text-glow sm:text-6xl">
+            <h3 className="mt-3 font-display text-5xl font-bold leading-[0.94] tracking-[0.03em] text-white text-glow sm:text-6xl">
               High<span className="gradient-text">On</span>Code
             </h3>
-            <p className="mt-3 flex items-center gap-2 text-sm italic text-[#7FFFD4]">
+            <p className="mt-3 flex items-center gap-2 text-sm italic text-[#a4e0cf]">
               <Quote className="h-4 w-4 opacity-60" />
               “Compiled with precision. Engineered for depth.”
             </p>
@@ -96,19 +96,19 @@ export function Identity() {
 function Block({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div>
-      <h4 className="font-display text-xs font-semibold uppercase tracking-[0.3em] text-[#7FFFD4]">{title}</h4>
-      <p className="mt-2 text-sm leading-relaxed text-[#C7EEF4]/90">{children}</p>
+      <h4 className="font-display text-xs font-semibold uppercase tracking-[0.28em] text-[#8bd8dc]">{title}</h4>
+      <p className="mt-2 text-sm leading-relaxed text-[#c9dfe2]/90">{children}</p>
     </div>
   );
 }
 
 function Stat({ label, value, tone }: { label: string; value: string; tone?: "live" }) {
   return (
-    <li className="flex items-center justify-between border-b border-[#5EF2FF]/10 pb-2 last:border-none">
-      <span className="text-[10px] uppercase tracking-[0.3em] text-[#5EF2FF]/70">{label}</span>
-      <span className={`font-display text-sm ${tone === "live" ? "text-[#7FFFD4]" : "text-white"}`}>
+    <li className="flex items-center justify-between border-b border-[#8bd8dc]/10 pb-2 last:border-none">
+      <span className="font-display text-[10px] uppercase tracking-[0.26em] text-[#8bd8dc]/70">{label}</span>
+      <span className={`font-display text-sm ${tone === "live" ? "text-[#a4e0cf]" : "text-white"}`}>
         {tone === "live" && (
-          <span className="mr-2 inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-[#7FFFD4] shadow-[0_0_8px_#7FFFD4]" />
+          <span className="mr-2 inline-block h-1.5 w-1.5 animate-pulse rounded-full bg-[#a4e0cf] shadow-[0_0_8px_#a4e0cf]" />
         )}
         {value}
       </span>
@@ -125,15 +125,15 @@ export function SectionShell({
   return (
     <section id={id} className="relative mx-auto max-w-7xl px-6 py-28 sm:py-32">
       <Reveal variant="left">
-        <p className="mb-3 flex items-center gap-3 text-[10px] uppercase tracking-[0.5em] text-[#FFB3A7]/80">
-          <span className="h-px w-8 bg-gradient-to-r from-transparent to-[#FF7A8A]/60" />
+        <p className="mb-3 flex items-center gap-3 font-display text-[10px] uppercase tracking-[0.42em] text-[#8bd8dc]/70">
+          <span className="h-px w-8 bg-gradient-to-r from-transparent to-[#8bd8dc]/55" />
           {eyebrow}
         </p>
       </Reveal>
       <Reveal variant="up" delay={0.1}>
-        <h2 className="mb-12 max-w-3xl font-display text-3xl font-bold tracking-tight text-white sm:text-5xl">
+        <h2 className="mb-12 max-w-3xl font-display text-4xl font-bold leading-[0.95] tracking-[0.02em] text-white sm:text-6xl">
           {title.split(" ").map((w, i, arr) => (
-            <span key={i} className={i === arr.length - 1 ? "gradient-text-coral" : ""}>
+            <span key={i} className={i === arr.length - 1 ? "gradient-text" : ""}>
               {w}{i < arr.length - 1 ? " " : ""}
             </span>
           ))}

@@ -22,15 +22,15 @@ export function Fun() {
       <div className="grid gap-6 lg:grid-cols-[1fr_1.2fr]">
         <Reveal className="space-y-4">
           <div className="rounded-3xl glass neon-hover p-6">
-            <h4 className="text-[10px] uppercase tracking-[0.4em] text-[#5EF2FF]/70">Team chemistry</h4>
-            <p className="mt-3 text-sm leading-relaxed text-[#C7EEF4]/85">
+            <h4 className="font-display text-[10px] uppercase tracking-[0.34em] text-[#8bd8dc]/70">Team chemistry</h4>
+            <p className="mt-3 text-sm leading-relaxed text-[#c3dadd]/85">
               Three brains, one shared terminal. We disagree loudly, ship quietly,
               and treat 2&nbsp;a.m. debugging sessions like underwater diving — slow
               breathing, sharp focus, no panic.
             </p>
           </div>
           <div className="rounded-3xl glass neon-hover p-6">
-            <h4 className="text-[10px] uppercase tracking-[0.4em] text-[#5EF2FF]/70">Late-night survivability</h4>
+            <h4 className="font-display text-[10px] uppercase tracking-[0.34em] text-[#8bd8dc]/70">Late-night survivability</h4>
             <div className="mt-3 flex items-center gap-4">
               <Survivability label="Soumyajit" value={92} />
               <Survivability label="Abhinav" value={85} />
@@ -38,8 +38,8 @@ export function Fun() {
             </div>
           </div>
           <div className="rounded-3xl glass neon-hover p-6">
-            <h4 className="text-[10px] uppercase tracking-[0.4em] text-[#5EF2FF]/70">Fun facts</h4>
-            <ul className="mt-3 space-y-2 text-sm text-[#C7EEF4]/85">
+            <h4 className="font-display text-[10px] uppercase tracking-[0.34em] text-[#8bd8dc]/70">Fun facts</h4>
+            <ul className="mt-3 space-y-2 text-sm text-[#c3dadd]/85">
               <li>· Once shipped a feature on a 18% battery laptop.</li>
               <li>· Our default rubber duck is a printed jellyfish.</li>
               <li>· We measure standups in cups, not minutes.</li>
@@ -52,9 +52,9 @@ export function Fun() {
             <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
               {stats.map((s) => (
                 <div key={s.label} className="rounded-2xl glass neon-hover p-4">
-                  <s.icon className="h-4 w-4 text-[#7FFFD4]" strokeWidth={1.5} />
-                  <div className="mt-3 font-display text-xl font-bold text-white text-glow-soft">{s.value}</div>
-                  <div className="mt-1 text-[10px] uppercase tracking-[0.3em] text-[#5EF2FF]/70">{s.label}</div>
+                  <s.icon className="h-4 w-4 text-[#a4e0cf]" strokeWidth={1.5} />
+                  <div className="mt-3 font-display text-xl font-bold tracking-[0.03em] text-white text-glow-soft">{s.value}</div>
+                  <div className="mt-1 font-display text-[10px] uppercase tracking-[0.26em] text-[#8bd8dc]/70">{s.label}</div>
                 </div>
               ))}
             </div>
@@ -62,7 +62,7 @@ export function Fun() {
           <Reveal delay={0.1}>
             <div className="space-y-3">
               {quotes.map((q, i) => (
-                <div key={i} className="rounded-2xl border border-[#5EF2FF]/15 bg-[#041C24]/40 p-4 text-sm italic text-[#B6EAF2]">
+                <div key={i} className="rounded-2xl border border-[#8bd8dc]/12 bg-[#041822]/44 p-4 text-sm italic text-[#c3dadd]">
                   {q}
                 </div>
               ))}
@@ -86,18 +86,18 @@ function Survivability({ label, value }: { label: string; value: number }) {
           <circle
             cx="40" cy="40" r={radius} stroke="url(#sv)" strokeWidth="6" fill="none"
             strokeLinecap="round" strokeDasharray={c} strokeDashoffset={off}
-            style={{ filter: "drop-shadow(0 0 6px #00D9FF)" }}
+            style={{ filter: "drop-shadow(0 0 6px #63d8e3)" }}
           />
           <defs>
             <linearGradient id="sv">
-              <stop offset="0%" stopColor="#7FFFD4" />
-              <stop offset="100%" stopColor="#00D9FF" />
+              <stop offset="0%" stopColor="#a4e0cf" />
+              <stop offset="100%" stopColor="#63d8e3" />
             </linearGradient>
           </defs>
         </svg>
-        <div className="absolute inset-0 grid place-items-center font-display text-sm font-bold text-white">{value}%</div>
+        <div className="absolute inset-0 grid place-items-center font-display text-sm font-bold tracking-[0.04em] text-white">{value}%</div>
       </div>
-      <div className="text-[10px] uppercase tracking-[0.25em] text-[#9EE9F2]/80">{label}</div>
+      <div className="font-display text-[10px] uppercase tracking-[0.22em] text-[#a9c8cc]/80">{label}</div>
     </div>
   );
 }

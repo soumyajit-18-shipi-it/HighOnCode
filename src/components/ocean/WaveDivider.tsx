@@ -12,9 +12,9 @@ export function WaveDivider({ flip = false }: { flip?: boolean }) {
       >
         <defs>
           <linearGradient id="wg" x1="0" x2="1">
-            <stop offset="0%" stopColor="#00D9FF" stopOpacity="0.4" />
-            <stop offset="50%" stopColor="#5EF2FF" stopOpacity="0.6" />
-            <stop offset="100%" stopColor="#7FFFD4" stopOpacity="0.4" />
+            <stop offset="0%" stopColor="#63d8e3" stopOpacity="0.22" />
+            <stop offset="50%" stopColor="#8bd8dc" stopOpacity="0.34" />
+            <stop offset="100%" stopColor="#a4e0cf" stopOpacity="0.24" />
           </linearGradient>
         </defs>
         <path

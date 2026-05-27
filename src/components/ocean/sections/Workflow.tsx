@@ -63,33 +63,33 @@ export function Workflow() {
         <div className="relative overflow-hidden rounded-3xl glass-strong neon-border p-6 sm:p-10">
           {/* top status bar */}
           <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <div className="flex items-center gap-3 text-[10px] uppercase tracking-[0.35em] text-[#5EF2FF]/80">
+            <div className="flex items-center gap-3 font-display text-[10px] uppercase tracking-[0.32em] text-[#8bd8dc]/80">
               <span className="relative inline-flex items-center gap-2">
-                <span className="h-2 w-2 rounded-full bg-[#7FFFD4] shadow-[0_0_8px_#7FFFD4]" />
-                <span className="animate-pulse text-[#7FFFD4]">LIVE</span>
-                <span className="ml-2 text-[#9EE9F2]/60">· highoncode/operations</span>
+                <span className="h-2 w-2 rounded-full bg-[#a4e0cf] shadow-[0_0_8px_#a4e0cf]" />
+                <span className="animate-pulse text-[#a4e0cf]">LIVE</span>
+                <span className="ml-2 text-[#a9c8cc]/60">· highoncode/operations</span>
               </span>
               <span className="hidden sm:inline">
                 <span className="ml-4 inline-flex items-center gap-2">
-                  <span className="inline-block h-2 w-2 rounded-full bg-[#5EF2FF] shadow-[0_0_6px_#00D9FF]" />
+                  <span className="inline-block h-2 w-2 rounded-full bg-[#63d8e3] shadow-[0_0_6px_#63d8e3]" />
                   SYNC STATUS · <strong className="ml-1 text-white">ACTIVE</strong>
                 </span>
               </span>
             </div>
 
-            <div className="flex items-center gap-4 text-[12px] text-[#9EE9F2]/70">
+            <div className="flex items-center gap-4 text-[12px] text-[#a9c8cc]/70">
               <div className="flex items-center gap-2">
-                <span className="text-[10px] uppercase tracking-[0.3em]">UTC</span>
+                <span className="font-display text-[10px] uppercase tracking-[0.26em]">UTC</span>
                 <div className="font-mono text-sm text-white">{utc.replace("T", " ").replace("Z", " UTC")}</div>
               </div>
-              <div className="hidden sm:block text-[10px] text-[#7FFFD4]/70">Systems evolve faster when knowledge is shared.</div>
+              <div className="hidden sm:block text-[10px] text-[#a4e0cf]/70">Systems evolve faster when knowledge is shared.</div>
             </div>
           </div>
 
           {/* floating particles & sonar lines */}
           <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
             <div className="absolute left-0 top-1/4 h-px w-full bg-gradient-to-r from-transparent via-[#00D9FF]/40 to-transparent opacity-30 animate-pulse" />
-            <div className="absolute right-0 top-1/2 h-px w-full bg-gradient-to-r from-transparent via-[#7FFFD4]/30 to-transparent opacity-20 animate-pulse delay-200" />
+            <div className="absolute right-0 top-1/2 h-px w-full bg-gradient-to-r from-transparent via-[#a4e0cf]/30 to-transparent opacity-20 animate-pulse delay-200" />
           </div>
 
           {/* nodes grid */}
@@ -99,7 +99,7 @@ export function Workflow() {
               <defs>
                 <linearGradient id="conn2" x1="0" x2="1">
                   <stop offset="0%" stopColor="#00D9FF" stopOpacity="0" />
-                  <stop offset="50%" stopColor="#7FFFD4" stopOpacity="0.5" />
+                  <stop offset="50%" stopColor="#a4e0cf" stopOpacity="0.45" />
                   <stop offset="100%" stopColor="#00D9FF" stopOpacity="0" />
                 </linearGradient>
               </defs>
@@ -114,12 +114,12 @@ export function Workflow() {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.08, duration: 0.5 }}
-                className="group relative rounded-2xl border border-[#5EF2FF]/12 bg-[#041C24]/40 p-5 transition hover:scale-[1.01] hover:shadow-[0_10px_40px_-12px_rgba(0,217,255,0.35)]"
+                className="group relative rounded-2xl border border-[#8bd8dc]/12 bg-[#041822]/48 p-5 transition hover:scale-[1.01] hover:shadow-[0_10px_40px_-12px_rgba(99,216,227,0.2)]"
               >
                 <div className="flex items-start justify-between gap-3">
                   <div className="relative">
-                    <span className="grid h-12 w-12 place-items-center rounded-lg border border-[#5EF2FF]/20 bg-[#020B12]" style={{ boxShadow: "inset 0 0 18px rgba(0,217,255,0.08)" }}>
-                      <n.icon className="h-5 w-5 text-[#7FFFD4]" strokeWidth={1.5} />
+                    <span className="grid h-12 w-12 place-items-center rounded-lg border border-[#8bd8dc]/20 bg-[#020B12]" style={{ boxShadow: "inset 0 0 18px rgba(99,216,227,0.06)" }}>
+                      <n.icon className="h-5 w-5 text-[#a4e0cf]" strokeWidth={1.5} />
                     </span>
                     {/* visual accents */}
                     {n.visual === "sonar" && (
@@ -127,17 +127,17 @@ export function Workflow() {
                     )}
                   </div>
 
-                  <span className="font-mono text-[10px] text-[#5EF2FF]/60">{n.id}</span>
+                  <span className="font-display text-[10px] text-[#8bd8dc]/60">{n.id}</span>
                 </div>
 
-                <h4 className="mt-3 font-display text-sm font-semibold text-white">{n.title}</h4>
-                <p className="mt-1 text-xs text-[#B6EAF2]/85">{n.desc}</p>
+                <h4 className="mt-3 font-display text-sm font-semibold tracking-[0.02em] text-white">{n.title}</h4>
+                <p className="mt-1 text-xs leading-relaxed text-[#c3dadd]/85">{n.desc}</p>
 
                 <div className="mt-4 flex items-center justify-between">
-                  <div className="flex items-center gap-3 text-[10px] text-[#5EF2FF]/70">
+                  <div className="flex items-center gap-3 font-display text-[10px] text-[#8bd8dc]/70">
                     <span className="relative flex h-2 w-2">
-                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#7FFFD4]/50" />
-                      <span className="relative inline-flex h-2 w-2 rounded-full bg-[#7FFFD4]" />
+                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#a4e0cf]/50" />
+                      <span className="relative inline-flex h-2 w-2 rounded-full bg-[#a4e0cf]" />
                     </span>
                     ACTIVE
                   </div>
@@ -187,7 +187,7 @@ export function Workflow() {
 
           {/* Core Engineering Principles */}
           <div className="mt-8">
-            <h3 className="mb-3 text-xs uppercase tracking-[0.35em] text-[#5EF2FF]/70">Core Engineering Principles</h3>
+              <h3 className="mb-3 font-display text-xs uppercase tracking-[0.3em] text-[#8bd8dc]/70">Core Engineering Principles</h3>
             <div className="flex flex-wrap gap-3">
               {[
                 "Ship with purpose",
@@ -199,7 +199,7 @@ export function Workflow() {
                 "Build together",
                 "Stay adaptable",
               ].map((p) => (
-                <motion.div key={p} whileHover={{ y: -4 }} className="rounded-full border border-[#5EF2FF]/10 bg-[#011419]/40 px-4 py-2 text-sm text-[#B6EAF2] shadow-[0_8px_30px_-16px_rgba(0,217,255,0.12)]">
+                <motion.div key={p} whileHover={{ y: -4 }} className="rounded-full border border-[#8bd8dc]/10 bg-[#011419]/42 px-4 py-2 text-sm text-[#c3dadd] shadow-[0_8px_30px_-16px_rgba(99,216,227,0.1)]">
                   {p}
                 </motion.div>
               ))}

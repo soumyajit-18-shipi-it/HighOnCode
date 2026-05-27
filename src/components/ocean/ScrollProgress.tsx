@@ -8,8 +8,8 @@ export function ScrollProgress() {
       className="fixed left-0 right-0 top-0 z-[70] h-[2px] origin-left"
       style={{
         scaleX: x,
-        background: "linear-gradient(90deg, #7FFFD4, #5EF2FF, #FFB3A7)",
-        boxShadow: "0 0 6px rgba(0,217,255,0.55), 0 0 14px rgba(255,179,167,0.25)",
+        background: "linear-gradient(90deg, #a4e0cf, #63d8e3, #7fa9a8)",
+        boxShadow: "0 0 6px rgba(99,216,227,0.28), 0 0 14px rgba(127,169,168,0.14)",
       }}
     />
   );

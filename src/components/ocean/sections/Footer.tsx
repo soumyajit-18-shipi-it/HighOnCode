@@ -217,7 +217,7 @@ function FootCol({ title, items }: { title: string; items: { label: string; href
 function MagneticButton({ href, children }: { href: string; children: React.ReactNode }) {
   const ref = useRef<HTMLAnchorElement | null>(null);
 
-  const onMove = (e: MouseEvent<HTMLAnchorElement>) => {
+  const onMove = (e: MouseEvent<HTMLDivElement>) => {
     const el = ref.current;
     if (!el) return;
     const r = el.getBoundingClientRect();

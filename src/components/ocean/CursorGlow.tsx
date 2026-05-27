@@ -25,22 +25,22 @@ export function CursorGlow() {
       style={{ opacity: visible ? 1 : 0 }}
     >
       <div
-        className="absolute h-[280px] w-[280px] -translate-x-1/2 -translate-y-1/2 rounded-full"
+        className="absolute h-[360px] w-[360px] -translate-x-1/2 -translate-y-1/2 rounded-full transition-[width,height] duration-500"
         style={{
           left: pos.x,
           top: pos.y,
           background:
-            "radial-gradient(circle, rgba(0,217,255,0.1) 0%, rgba(94,242,255,0.04) 34%, transparent 72%)",
-          filter: "blur(14px)",
+            "radial-gradient(circle, rgba(0,217,255,0.09) 0%, rgba(127,255,212,0.04) 32%, rgba(255,179,167,0.03) 55%, transparent 72%)",
+          filter: "blur(22px)",
         }}
       />
       <div
-        className="absolute h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full"
+        className="absolute h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full"
         style={{
           left: pos.x,
           top: pos.y,
-          background: "#7FFFD4",
-          boxShadow: "0 0 12px rgba(0,217,255,0.45), 0 0 24px rgba(94,242,255,0.2)",
+          background: "rgba(127,255,212,0.85)",
+          boxShadow: "0 0 8px rgba(0,217,255,0.35), 0 0 18px rgba(94,242,255,0.18)",
         }}
       />
     </div>

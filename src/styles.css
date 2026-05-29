@@ -409,3 +409,221 @@
   background-size: 200% 100%;
   animation: shimmer-line 4s linear infinite;
 }
+
+/* ============================================================
+ * Crew dossier card system — cinematic intelligence interface
+ * ============================================================ */
+
+/* Sibling dim: when crew-grid is hovered, non-hovered cards fade back */
+.crew-grid:hover .crew-card:not(:hover) {
+  opacity: 0.42;
+  filter: blur(1.4px) saturate(85%);
+  transform: scale(0.985);
+}
+.crew-card {
+  transition: opacity 600ms cubic-bezier(.2,.8,.2,1),
+              filter 600ms cubic-bezier(.2,.8,.2,1),
+              transform 600ms cubic-bezier(.2,.8,.2,1);
+  will-change: transform, opacity, filter;
+}
+
+/* Animated conic edge ring */
+@keyframes edge-orbit {
+  0%   { --edge-angle: 0deg; }
+  100% { --edge-angle: 360deg; }
+}
+@property --edge-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+.edge-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--edge-angle, 0deg),
+    transparent 0deg,
+    var(--card-accent, #63d8e3) 60deg,
+    transparent 140deg,
+    rgba(164,224,207,0.55) 220deg,
+    transparent 300deg
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  opacity: 0.28;
+  animation: edge-orbit 9s linear infinite;
+  transition: opacity 500ms ease;
+  pointer-events: none;
+}
+.crew-card:hover .edge-ring { opacity: 0.85; }
+
+/* Corner brackets */
+.corner-bracket {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-color: rgba(155, 218, 222, 0.55);
+  transition: border-color 400ms ease, width 400ms ease, height 400ms ease;
+  pointer-events: none;
+}
+.crew-card:hover .corner-bracket {
+  border-color: var(--card-accent, #63d8e3);
+  width: 28px;
+  height: 28px;
+}
+.corner-tl { top: 10px; left: 10px; border-top: 1px solid; border-left: 1px solid; }
+.corner-tr { top: 10px; right: 10px; border-top: 1px solid; border-right: 1px solid; }
+.corner-bl { bottom: 10px; left: 10px; border-bottom: 1px solid; border-left: 1px solid; }
+.corner-br { bottom: 10px; right: 10px; border-bottom: 1px solid; border-right: 1px solid; }
+
+/* Vertical scan sweep inside card */
+@keyframes scan-sweep {
+  0%   { transform: translateY(-110%); opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateY(110%); opacity: 0; }
+}
+.scan-line {
+  position: absolute;
+  left: 0; right: 0;
+  height: 90px;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(99,216,227,0.10) 45%,
+    rgba(164,224,207,0.18) 50%,
+    rgba(99,216,227,0.10) 55%,
+    transparent 100%
+  );
+  mix-blend-mode: screen;
+  opacity: 0;
+  pointer-events: none;
+  filter: blur(2px);
+  transition: opacity 400ms ease;
+}
+.crew-card:hover .scan-line {
+  opacity: 1;
+  animation: scan-sweep 3.6s cubic-bezier(.45,.05,.55,.95) infinite;
+}
+
+/* Sonar ring around avatar */
+@keyframes sonar-pulse {
+  0%   { transform: scale(0.6); opacity: 0.7; }
+  100% { transform: scale(2.1); opacity: 0; }
+}
+.sonar-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  border: 1px solid var(--card-accent, #63d8e3);
+  animation: sonar-pulse 3.2s cubic-bezier(.2,.8,.2,1) infinite;
+}
+.sonar-ring:nth-child(2) { animation-delay: 1.06s; }
+.sonar-ring:nth-child(3) { animation-delay: 2.13s; }
+
+/* Telemetry ticker */
+@keyframes ticker-slide {
+  0%   { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+.ticker-track {
+  display: inline-flex;
+  gap: 28px;
+  white-space: nowrap;
+  animation: ticker-slide 22s linear infinite;
+}
+
+/* Magnetic social bubble — extended icon-bubble */
+.social-bubble {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  height: 42px;
+  width: 42px;
+  border-radius: 14px;
+  border: 1px solid rgba(139,216,220,0.18);
+  background:
+    radial-gradient(120% 120% at 50% 0%, rgba(99,216,227,0.10), transparent 55%),
+    linear-gradient(160deg, rgba(6,42,52,0.85), rgba(2,10,14,0.92));
+  color: #c6dde0;
+  overflow: hidden;
+  transition: transform 450ms cubic-bezier(.2,.8,.2,1),
+              border-color 350ms ease,
+              box-shadow 450ms ease, color 300ms ease;
+}
+.social-bubble::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at 50% 130%, var(--card-accent, #63d8e3), transparent 60%);
+  opacity: 0;
+  transition: opacity 500ms ease;
+}
+.social-bubble:hover {
+  transform: translateY(-4px);
+  border-color: var(--card-accent, #63d8e3);
+  color: #f2fbfc;
+  box-shadow: 0 14px 32px -14px var(--card-accent, #63d8e3);
+}
+.social-bubble:hover::after { opacity: 0.45; }
+
+/* Radial telemetry ring for skill cluster */
+@keyframes ring-rotate {
+  to { transform: rotate(360deg); }
+}
+.telemetry-ring {
+  animation: ring-rotate 28s linear infinite;
+}
+.telemetry-ring-rev {
+  animation: ring-rotate 38s linear infinite reverse;
+}
+
+/* Project module — classified file feel */
+.dossier-project {
+  position: relative;
+  border-radius: 16px;
+  border: 1px solid rgba(139,216,220,0.10);
+  background: linear-gradient(180deg, rgba(4,22,28,0.55), rgba(2,10,14,0.7));
+  transition: border-color 350ms ease, background 350ms ease, box-shadow 400ms ease;
+}
+.dossier-project::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 10%; bottom: 10%;
+  width: 2px;
+  background: linear-gradient(180deg, transparent, var(--card-accent, #63d8e3), transparent);
+  opacity: 0;
+  transition: opacity 400ms ease;
+  border-radius: 2px;
+}
+.dossier-project[data-open="true"],
+.dossier-project:hover {
+  border-color: color-mix(in oklab, var(--card-accent, #63d8e3) 45%, transparent);
+  background: linear-gradient(180deg, rgba(6,28,36,0.78), rgba(3,14,18,0.85));
+  box-shadow: 0 20px 48px -28px color-mix(in oklab, var(--card-accent, #63d8e3) 55%, transparent);
+}
+.dossier-project[data-open="true"]::before,
+.dossier-project:hover::before { opacity: 1; }
+
+/* Floating particle layer */
+@keyframes particle-drift {
+  0%   { transform: translate(0, 0); opacity: 0; }
+  20%  { opacity: 0.8; }
+  100% { transform: translate(var(--dx, 30px), -120px); opacity: 0; }
+}
+.card-particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(164,224,207,0.9), rgba(99,216,227,0.2) 60%, transparent);
+  box-shadow: 0 0 8px rgba(99,216,227,0.45);
+  pointer-events: none;
+  animation: particle-drift linear infinite;
+}

@@ -27,6 +27,30 @@ export function OceanBackground() {
         }}
       />
 
+      {/* depth-pressure overlay — darkens as user scrolls into deeper sections */}
+      <div
+        className="absolute inset-0 transition-[opacity] duration-500"
+        style={{
+          background:
+            "radial-gradient(120% 90% at 50% 60%, transparent 0%, rgba(0,3,6,0.55) 70%, rgba(0,2,4,0.85) 100%)",
+          opacity: "calc(var(--scroll-depth, 0) * 0.85)",
+        }}
+      />
+
+      {/* scroll-velocity sonar sweep */}
+      <div
+        className="absolute inset-x-0 top-1/2 h-[140vh] -translate-y-1/2"
+        style={{
+          background:
+            "linear-gradient(180deg, transparent 0%, rgba(99,216,227,0.06) 48%, rgba(164,224,207,0.04) 50%, transparent 100%)",
+          opacity: "calc(var(--scroll-velocity, 0) * 0.55)",
+          transform:
+            "translateY(calc(-50% + (var(--scroll-velocity, 0) * 40px))) scaleY(calc(1 + var(--scroll-velocity, 0) * 0.3))",
+          filter: "blur(28px)",
+          mixBlendMode: "screen",
+        }}
+      />
+
       {/* god rays */}
       <div
         className="absolute inset-0 opacity-24 mix-blend-screen"

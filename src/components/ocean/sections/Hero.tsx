@@ -9,24 +9,83 @@ gsap.registerPlugin(ScrollTrigger);
 export function Hero() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const glowRef = useRef<HTMLDivElement | null>(null);
+  const headlineRef = useRef<HTMLHeadingElement | null>(null);
+  const contentRef = useRef<HTMLDivElement | null>(null);
+  const logoRef = useRef<HTMLImageElement | null>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      // Headline: per-character wave emergence from underwater fog
+      if (headlineRef.current) {
+        const chars = headlineRef.current.querySelectorAll<HTMLSpanElement>("[data-char]");
+        gsap.fromTo(
+          chars,
+          { opacity: 0, y: 60, rotateX: -55, filter: "blur(18px)" },
+          {
+            opacity: 1,
+            y: 0,
+            rotateX: 0,
+            filter: "blur(0px)",
+            duration: 1.4,
+            ease: "power4.out",
+            stagger: { each: 0.045, from: "center" },
+            delay: 0.25,
+          },
+        );
+      }
+
       gsap.fromTo(
         "[data-hero-reveal]",
-        { opacity: 0, y: 24, filter: "blur(8px)" },
-        { opacity: 1, y: 0, filter: "blur(0px)", duration: 1, stagger: 0.12, ease: "power3.out", delay: 0.05 },
+        { opacity: 0, y: 28, filter: "blur(10px)" },
+        {
+          opacity: 1,
+          y: 0,
+          filter: "blur(0px)",
+          duration: 1.2,
+          stagger: 0.14,
+          ease: "power3.out",
+          delay: 0.15,
+        },
       );
+
+      // Ambient breathing on logo
+      if (logoRef.current) {
+        gsap.to(logoRef.current, {
+          y: -8,
+          scale: 1.03,
+          duration: 4.5,
+          ease: "sine.inOut",
+          yoyo: true,
+          repeat: -1,
+        });
+      }
 
       if (glowRef.current) {
         gsap.to(glowRef.current, {
-          y: -50,
+          y: -120,
+          scale: 1.15,
           ease: "none",
           scrollTrigger: {
             trigger: sectionRef.current,
             start: "top top",
             end: "bottom top",
-            scrub: 0.9,
+            scrub: 1.1,
+          },
+        });
+      }
+
+      // Scroll-exit: content drifts down with blur (currents pulling away)
+      if (contentRef.current) {
+        gsap.to(contentRef.current, {
+          y: 140,
+          opacity: 0.15,
+          filter: "blur(6px)",
+          ease: "none",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top top",
+            end: "bottom top",
+            scrub: 1.2,
           },
         });
       }
@@ -41,12 +100,12 @@ export function Hero() {
       <div
         ref={glowRef}
         className="pointer-events-none absolute left-1/2 top-1/2 h-[60vmin] w-[60vmin] -translate-x-1/2 -translate-y-1/2 rounded-full"
-        style={{ background: "radial-gradient(circle, rgba(99,216,227,0.11), transparent 64%)", filter: "blur(56px)" }}
+        style={{ background: "radial-gradient(circle, rgba(99,216,227,0.09), rgba(52,75,115,0.05) 45%, transparent 70%)", filter: "blur(60px)" }}
       />
 
-      <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-6 text-center">
+      <div ref={contentRef} className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-6 text-center">
         <div data-hero-reveal className="mb-8">
-          <img src={swechaLogo} alt="Swecha logo" className="h-28 w-28 rounded-full object-cover" />
+          <img ref={logoRef} src={swechaLogo} alt="Swecha logo" className="h-28 w-28 rounded-full object-cover" />
         </div>
 
         <p data-hero-reveal className="mb-5 flex items-center gap-3 font-display text-[10px] uppercase tracking-[0.42em] text-[#8bd8dc]/72">
@@ -55,8 +114,21 @@ export function Hero() {
           <span className="h-px w-10 bg-[#8bd8dc]/40" />
         </p>
 
-        <h1 data-hero-reveal className="font-display text-5xl font-extrabold leading-[0.92] tracking-[0.03em] text-white text-glow sm:text-7xl md:text-[7.5rem]">
-          High<span className="gradient-text">On</span>Code
+        <h1
+          ref={headlineRef}
+          className="font-display text-5xl font-extrabold leading-[0.92] tracking-[0.03em] text-white text-glow sm:text-7xl md:text-[7.5rem]"
+          style={{ perspective: "1000px" }}
+        >
+          {"HighOnCode".split("").map((c, i) => (
+            <span
+              key={i}
+              data-char
+              className={`inline-block ${i >= 4 && i < 6 ? "gradient-text" : ""}`}
+              style={{ willChange: "transform, opacity, filter" }}
+            >
+              {c}
+            </span>
+          ))}
         </h1>
 
         <p data-hero-reveal className="mt-6 max-w-2xl text-base font-light leading-relaxed tracking-[0.01em] text-[#c3dadd] sm:text-lg md:text-xl">

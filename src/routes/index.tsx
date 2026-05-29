@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { OceanBackground } from "@/components/ocean/OceanBackground";
 import { CursorGlow } from "@/components/ocean/CursorGlow";
 import { ScrollProgress } from "@/components/ocean/ScrollProgress";
+import { SmoothScroll } from "@/components/ocean/SmoothScroll";
 import { Nav } from "@/components/ocean/Nav";
 import { Loader } from "@/components/ocean/Loader";
 import { WaveDivider } from "@/components/ocean/WaveDivider";
@@ -34,6 +35,7 @@ function Index() {
   return (
     <div className="relative min-h-screen">
       <Loader />
+      <SmoothScroll />
       <OceanBackground />
       <CursorGlow />
       <ScrollProgress />

@@ -9,7 +9,7 @@ export function ScrollProgress() {
       style={{
         scaleX: x,
         background: "linear-gradient(90deg, #a4e0cf, #63d8e3, #7fa9a8)",
-        boxShadow: "0 0 6px rgba(99,216,227,0.28), 0 0 14px rgba(127,169,168,0.14)",
+        boxShadow: "0 0 4px rgba(99,216,227,0.18)",
       }}
     />
   );

@@ -1,16 +1,21 @@
 import { useEffect, useState } from "react";
+import { getMotionProfile } from "@/lib/motion";
 
 export function OceanBackground() {
+  const [profile, setProfile] = useState(() => ({ reduced: false, lowPower: false }));
   const [bubbles, setBubbles] = useState<
     { id: number; left: number; size: number; duration: number; delay: number }[]
   >([]);
 
   useEffect(() => {
-    const arr = Array.from({ length: 24 }).map((_, i) => ({
+    const motion = getMotionProfile();
+    setProfile({ reduced: motion.reduced, lowPower: motion.lowPower });
+    const bubbleCount = motion.reduced ? 0 : motion.lowPower ? 8 : 14;
+    const arr = Array.from({ length: bubbleCount }).map((_, i) => ({
       id: i,
       left: Math.random() * 100,
-      size: 2 + Math.random() * 10,
-      duration: 18 + Math.random() * 28,
+      size: 2 + Math.random() * (motion.lowPower ? 6 : 8),
+      duration: 24 + Math.random() * 30,
       delay: Math.random() * 20,
     }));
     setBubbles(arr);
@@ -43,37 +48,35 @@ export function OceanBackground() {
         style={{
           background:
             "linear-gradient(180deg, transparent 0%, rgba(99,216,227,0.06) 48%, rgba(164,224,207,0.04) 50%, transparent 100%)",
-          opacity: "calc(var(--scroll-velocity, 0) * 0.55)",
+          opacity: "calc(var(--scroll-velocity, 0) * 0.32)",
           transform:
-            "translateY(calc(-50% + (var(--scroll-velocity, 0) * 40px))) scaleY(calc(1 + var(--scroll-velocity, 0) * 0.3))",
-          filter: "blur(28px)",
-          mixBlendMode: "screen",
+            "translateY(calc(-50% + (var(--scroll-velocity, 0) * 20px))) scaleY(calc(1 + var(--scroll-velocity, 0) * 0.12))",
+          filter: "blur(16px)",
         }}
       />
 
-      {/* god rays */}
-      <div
-        className="absolute inset-0 opacity-24 mix-blend-screen"
-        style={{
-          background:
-            "conic-gradient(from 200deg at 50% -10%, transparent 0deg, rgba(99,216,227,0.08) 18deg, transparent 36deg, rgba(139,216,220,0.06) 60deg, transparent 90deg, rgba(164,224,207,0.045) 130deg, transparent 170deg)",
-          filter: "blur(52px)",
-        }}
-      />
+      {!profile.lowPower && (
+        <div
+          className="absolute inset-0 opacity-18"
+          style={{
+            background:
+              "conic-gradient(from 200deg at 50% -10%, transparent 0deg, rgba(99,216,227,0.06) 18deg, transparent 36deg, rgba(139,216,220,0.04) 60deg, transparent 90deg, rgba(164,224,207,0.035) 130deg, transparent 170deg)",
+            filter: "blur(32px)",
+          }}
+        />
+      )}
 
       {/* caustic glows */}
       <div
-        className="absolute -top-40 left-1/3 h-[36rem] w-[36rem] rounded-full animate-pulse-glow"
-        style={{ background: "radial-gradient(circle, rgba(99,216,227,0.85) 0%, transparent 62%)", opacity: 0.06 }}
+        className="absolute -top-40 left-1/3 h-[30rem] w-[30rem] rounded-full animate-pulse-glow"
+        style={{ background: "radial-gradient(circle, rgba(99,216,227,0.6) 0%, transparent 62%)", opacity: 0.04 }}
       />
-      <div
-        className="absolute top-1/2 -right-40 h-[32rem] w-[32rem] rounded-full animate-pulse-glow"
-        style={{ background: "radial-gradient(circle, rgba(127,169,168,0.65) 0%, transparent 62%)", opacity: 0.04, animationDelay: "2s" }}
-      />
-      <div
-        className="absolute bottom-0 left-0 h-[36rem] w-[36rem] rounded-full animate-pulse-glow"
-        style={{ background: "radial-gradient(circle, rgba(52,75,115,0.55) 0%, transparent 62%)", opacity: 0.08, animationDelay: "4s" }}
-      />
+      {!profile.lowPower && (
+        <div
+          className="absolute bottom-0 left-0 h-[28rem] w-[28rem] rounded-full animate-pulse-glow"
+          style={{ background: "radial-gradient(circle, rgba(52,75,115,0.45) 0%, transparent 62%)", opacity: 0.05, animationDelay: "3s" }}
+        />
+      )}
 
       <div className="ocean-vignette absolute inset-0" />
       <div className="ocean-fog absolute inset-0 animate-float-slow opacity-80" />
@@ -114,16 +117,14 @@ export function OceanBackground() {
         />
       ))}
 
-      {/* jellyfish silhouettes */}
-      <Jellyfish className="left-[8%] top-[18%]" delay={0} />
-      <Jellyfish className="right-[12%] top-[55%]" delay={1.4} scale={0.8} />
-      <Jellyfish className="left-[55%] bottom-[12%]" delay={2.6} scale={1.2} />
-
-      {/* drifting fish */}
-      <FishLane top="20%" duration={45} delay={0} reverse={false} />
-      <FishLane top="42%" duration={62} delay={6} reverse={true} scale={0.7} />
-      <FishLane top="70%" duration={55} delay={2} reverse={false} scale={0.9} />
-      <FishLane top="85%" duration={70} delay={14} reverse={true} scale={0.5} />
+      {!profile.lowPower && (
+        <>
+          <Jellyfish className="left-[8%] top-[18%]" delay={0} />
+          <Jellyfish className="right-[12%] top-[55%]" delay={1.4} scale={0.85} />
+          <FishLane top="26%" duration={58} delay={0} reverse={false} />
+          <FishLane top="68%" duration={66} delay={6} reverse={true} scale={0.75} />
+        </>
+      )}
     </div>
   );
 }

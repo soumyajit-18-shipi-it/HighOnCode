@@ -1,19 +1,67 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
+import { getMotionProfile } from "@/lib/motion";
 
 export function CursorGlow() {
-  const [pos, setPos] = useState({ x: -200, y: -200 });
-  const [visible, setVisible] = useState(false);
+  const rootRef = useRef<HTMLDivElement | null>(null);
+  const cursorRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (window.matchMedia("(pointer: coarse)").matches) return;
-    const move = (e: MouseEvent) => {
-      setPos({ x: e.clientX, y: e.clientY });
-      setVisible(true);
+    const profile = getMotionProfile();
+
+    if (profile.coarsePointer || profile.reduced) return;
+
+    const root = rootRef.current;
+    const cursor = cursorRef.current;
+
+    if (!root || !cursor) return;
+
+    let rafId = 0;
+
+    let targetX = -200;
+    let targetY = -200;
+
+    let currentX = -200;
+    let currentY = -200;
+
+    let rotation = 0;
+
+    const render = () => {
+      currentX += (targetX - currentX) * 0.14;
+      currentY += (targetY - currentY) * 0.14;
+
+      const dx = targetX - currentX;
+      const dy = targetY - currentY;
+
+      rotation = Math.atan2(dy, dx) * (180 / Math.PI);
+
+      cursor.style.transform = `
+        translate3d(${currentX}px, ${currentY}px, 0)
+        translate(-50%, -50%)
+        rotate(${rotation}deg)
+      `;
+
+      rafId = requestAnimationFrame(render);
     };
-    const leave = () => setVisible(false);
-    window.addEventListener("mousemove", move);
+
+    const move = (e: MouseEvent) => {
+      targetX = e.clientX;
+      targetY = e.clientY;
+
+      root.style.opacity = "1";
+    };
+
+    const leave = () => {
+      root.style.opacity = "0";
+    };
+
+    rafId = requestAnimationFrame(render);
+
+    window.addEventListener("mousemove", move, { passive: true });
     window.addEventListener("mouseleave", leave);
+
     return () => {
+      cancelAnimationFrame(rafId);
+
       window.removeEventListener("mousemove", move);
       window.removeEventListener("mouseleave", leave);
     };
@@ -21,28 +69,33 @@ export function CursorGlow() {
 
   return (
     <div
-      className="pointer-events-none fixed inset-0 z-[60] transition-opacity duration-500"
-      style={{ opacity: visible ? 1 : 0 }}
+      ref={rootRef}
+      className="pointer-events-none fixed inset-0 z-[999] opacity-0 transition-opacity duration-300"
     >
       <div
-        className="absolute h-[360px] w-[360px] -translate-x-1/2 -translate-y-1/2 rounded-full transition-[width,height] duration-500"
+        ref={cursorRef}
+        className="absolute will-change-transform"
         style={{
-          left: pos.x,
-          top: pos.y,
-          background:
-            "radial-gradient(circle, rgba(0,217,255,0.09) 0%, rgba(127,255,212,0.04) 32%, rgba(255,179,167,0.03) 55%, transparent 72%)",
-          filter: "blur(22px)",
+          backfaceVisibility: "hidden",
         }}
-      />
-      <div
-        className="absolute h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full"
-        style={{
-          left: pos.x,
-          top: pos.y,
-          background: "rgba(127,255,212,0.85)",
-          boxShadow: "0 0 8px rgba(0,217,255,0.35), 0 0 18px rgba(94,242,255,0.18)",
-        }}
-      />
+      >
+        <img
+          src="src/fish.png"
+          alt="cursor"
+          draggable={false}
+          className="
+            w-14
+            h-14
+            object-contain
+            select-none
+            opacity-95
+          "
+          style={{
+            filter:
+              "drop-shadow(0 0 10px rgba(94,242,255,0.22))",
+          }}
+        />
+      </div>
     </div>
   );
 }

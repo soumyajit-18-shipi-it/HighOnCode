@@ -3,6 +3,7 @@ import { ChevronDown, Anchor } from "lucide-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import swechaLogo from "@/swecha_logo.png";
+import { getMotionProfile } from "@/lib/motion";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,46 +15,42 @@ export function Hero() {
   const logoRef = useRef<HTMLImageElement | null>(null);
 
   useEffect(() => {
+    const profile = getMotionProfile();
     const ctx = gsap.context(() => {
-      // Headline: per-character wave emergence from underwater fog
       if (headlineRef.current) {
         const chars = headlineRef.current.querySelectorAll<HTMLSpanElement>("[data-char]");
         gsap.fromTo(
           chars,
-          { opacity: 0, y: 60, rotateX: -55, filter: "blur(18px)" },
+          { opacity: 0, y: 32, rotateX: -16 },
           {
             opacity: 1,
             y: 0,
             rotateX: 0,
-            filter: "blur(0px)",
-            duration: 1.4,
-            ease: "power4.out",
-            stagger: { each: 0.045, from: "center" },
-            delay: 0.25,
+            duration: 0.95,
+            ease: "power3.out",
+            stagger: { each: 0.028, from: "center" },
+            delay: 0.14,
           },
         );
       }
 
       gsap.fromTo(
         "[data-hero-reveal]",
-        { opacity: 0, y: 28, filter: "blur(10px)" },
+        { opacity: 0, y: 18 },
         {
           opacity: 1,
           y: 0,
-          filter: "blur(0px)",
-          duration: 1.2,
-          stagger: 0.14,
-          ease: "power3.out",
-          delay: 0.15,
+          duration: 0.8,
+          stagger: 0.08,
+          ease: "power2.out",
+          delay: 0.08,
         },
       );
 
-      // Ambient breathing on logo
-      if (logoRef.current) {
+      if (logoRef.current && !profile.lowPower) {
         gsap.to(logoRef.current, {
-          y: -8,
-          scale: 1.03,
-          duration: 4.5,
+          y: -4,
+          duration: 5,
           ease: "sine.inOut",
           yoyo: true,
           repeat: -1,
@@ -62,30 +59,30 @@ export function Hero() {
 
       if (glowRef.current) {
         gsap.to(glowRef.current, {
-          y: -120,
-          scale: 1.15,
+          y: -60,
+          scale: 1.06,
           ease: "none",
           scrollTrigger: {
             trigger: sectionRef.current,
             start: "top top",
             end: "bottom top",
-            scrub: 1.1,
+            scrub: 0.8,
+            invalidateOnRefresh: true,
           },
         });
       }
 
-      // Scroll-exit: content drifts down with blur (currents pulling away)
       if (contentRef.current) {
         gsap.to(contentRef.current, {
-          y: 140,
-          opacity: 0.15,
-          filter: "blur(6px)",
+          y: 64,
+          opacity: 0.4,
           ease: "none",
           scrollTrigger: {
             trigger: sectionRef.current,
             start: "top top",
             end: "bottom top",
-            scrub: 1.2,
+            scrub: 0.9,
+            invalidateOnRefresh: true,
           },
         });
       }
@@ -100,7 +97,11 @@ export function Hero() {
       <div
         ref={glowRef}
         className="pointer-events-none absolute left-1/2 top-1/2 h-[60vmin] w-[60vmin] -translate-x-1/2 -translate-y-1/2 rounded-full"
-        style={{ background: "radial-gradient(circle, rgba(99,216,227,0.09), rgba(52,75,115,0.05) 45%, transparent 70%)", filter: "blur(60px)" }}
+        style={{
+          background: "radial-gradient(circle, rgba(99,216,227,0.08), rgba(52,75,115,0.04) 48%, transparent 72%)",
+          filter: "blur(28px)",
+          willChange: "transform, opacity",
+        }}
       />
 
       <div ref={contentRef} className="relative z-10 mx-auto flex max-w-5xl flex-col items-center px-6 text-center">
@@ -124,7 +125,7 @@ export function Hero() {
               key={i}
               data-char
               className={`inline-block ${i >= 4 && i < 6 ? "gradient-text" : ""}`}
-              style={{ willChange: "transform, opacity, filter" }}
+              style={{ willChange: "transform, opacity" }}
             >
               {c}
             </span>
@@ -163,7 +164,7 @@ export function Hero() {
         className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-[#8bd8dc]/60 transition hover:text-[#a4e0cf]"
       >
         <span className="font-display text-[10px] uppercase tracking-[0.35em]"></span>
-        <ChevronDown className="h-5 w-5 animate-bounce" />
+        <ChevronDown className="h-5 w-5" />
       </a>
     </section>
   );
@@ -180,21 +181,35 @@ function Stat({ label, value }: { label: string; value: string }) {
 
 function MagneticButton({ href, children }: { href: string; children: React.ReactNode }) {
   const ref = useRef<HTMLAnchorElement | null>(null);
+  const xToRef = useRef<((value: number) => gsap.core.Tween) | null>(null);
+  const yToRef = useRef<((value: number) => gsap.core.Tween) | null>(null);
+  const scaleToRef = useRef<((value: number) => gsap.core.Tween) | null>(null);
+
+  useEffect(() => {
+    if (!ref.current) return;
+    xToRef.current = gsap.quickTo(ref.current, "x", { duration: 0.24, ease: "power2.out" });
+    yToRef.current = gsap.quickTo(ref.current, "y", { duration: 0.24, ease: "power2.out" });
+    scaleToRef.current = gsap.quickTo(ref.current, "scale", { duration: 0.22, ease: "power2.out" });
+  }, []);
 
   const handleMove = (event: MouseEvent<HTMLAnchorElement>) => {
     const element = ref.current;
-    if (!element) return;
+    if (!element || !xToRef.current || !yToRef.current || !scaleToRef.current) return;
 
     const bounds = element.getBoundingClientRect();
-    const x = (event.clientX - (bounds.left + bounds.width / 2)) * 0.18;
-    const y = (event.clientY - (bounds.top + bounds.height / 2)) * 0.22;
+    const x = (event.clientX - (bounds.left + bounds.width / 2)) * 0.1;
+    const y = (event.clientY - (bounds.top + bounds.height / 2)) * 0.12;
 
-    gsap.to(element, { x, y, scale: 1.02, duration: 0.35, ease: "power3.out" });
+    xToRef.current(x);
+    yToRef.current(y);
+    scaleToRef.current(1.01);
   };
 
   const handleLeave = () => {
-    if (!ref.current) return;
-    gsap.to(ref.current, { x: 0, y: 0, scale: 1, duration: 0.5, ease: "power3.out" });
+    if (!xToRef.current || !yToRef.current || !scaleToRef.current) return;
+    xToRef.current(0);
+    yToRef.current(0);
+    scaleToRef.current(1);
   };
 
   return (

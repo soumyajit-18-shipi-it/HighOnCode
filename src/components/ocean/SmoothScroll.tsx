@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { applyMotionDataAttributes, getMotionProfile } from "@/lib/motion";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,14 +15,17 @@ gsap.registerPlugin(ScrollTrigger);
 export function SmoothScroll() {
   useEffect(() => {
     if (typeof window === "undefined") return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const profile = getMotionProfile();
+    applyMotionDataAttributes(profile);
+    if (profile.reduced) return;
 
     const lenis = new Lenis({
-      duration: 1.35,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      duration: profile.lowPower ? 0.88 : 1.02,
+      easing: (t) => 1 - Math.pow(1 - t, 3),
       smoothWheel: true,
-      wheelMultiplier: 0.9,
-      touchMultiplier: 1.4,
+      wheelMultiplier: profile.lowPower ? 0.8 : 0.9,
+      touchMultiplier: 1,
+      syncTouch: true,
     });
 
     const root = document.documentElement;
@@ -40,13 +44,15 @@ export function SmoothScroll() {
       lenis.raf(time * 1000);
     };
     gsap.ticker.add(raf);
-    gsap.ticker.lagSmoothing(0);
+    gsap.ticker.lagSmoothing(600, 33);
 
     return () => {
       gsap.ticker.remove(raf);
       lenis.destroy();
       root.style.removeProperty("--scroll-velocity");
       root.style.removeProperty("--scroll-depth");
+      delete root.dataset.motion;
+      delete root.dataset.pointer;
     };
   }, []);
 

@@ -5,28 +5,28 @@ type RevealVariant = "up" | "down" | "left" | "right" | "fade" | "zoom" | "tilt"
 
 const variantsMap: Record<RevealVariant, Variants> = {
   up: {
-    hidden: { opacity: 0, y: 36, filter: "blur(6px)" },
-    show: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.85, ease: [0.2, 0.8, 0.2, 1] } },
+    hidden: { opacity: 0, y: 22 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.2, 0.8, 0.2, 1] } },
   },
   down: {
-    hidden: { opacity: 0, y: -36, filter: "blur(6px)" },
-    show: { opacity: 1, y: 0, filter: "blur(0px)", transition: { duration: 0.85, ease: [0.2, 0.8, 0.2, 1] } },
+    hidden: { opacity: 0, y: -22 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: [0.2, 0.8, 0.2, 1] } },
   },
   left: {
-    hidden: { opacity: 0, x: -48, filter: "blur(6px)" },
-    show: { opacity: 1, x: 0, filter: "blur(0px)", transition: { duration: 0.9, ease: [0.2, 0.8, 0.2, 1] } },
+    hidden: { opacity: 0, x: -28 },
+    show: { opacity: 1, x: 0, transition: { duration: 0.7, ease: [0.2, 0.8, 0.2, 1] } },
   },
   right: {
-    hidden: { opacity: 0, x: 48, filter: "blur(6px)" },
-    show: { opacity: 1, x: 0, filter: "blur(0px)", transition: { duration: 0.9, ease: [0.2, 0.8, 0.2, 1] } },
+    hidden: { opacity: 0, x: 28 },
+    show: { opacity: 1, x: 0, transition: { duration: 0.7, ease: [0.2, 0.8, 0.2, 1] } },
   },
   fade: {
-    hidden: { opacity: 0 },
-    show: { opacity: 1, transition: { duration: 1, ease: "easeOut" } },
+    hidden: { opacity: 0.01 },
+    show: { opacity: 1, transition: { duration: 0.55, ease: "easeOut" } },
   },
   zoom: {
-    hidden: { opacity: 0, scale: 0.92, filter: "blur(8px)" },
-    show: { opacity: 1, scale: 1, filter: "blur(0px)", transition: { duration: 0.9, ease: [0.2, 0.8, 0.2, 1] } },
+    hidden: { opacity: 0, scale: 0.97 },
+    show: { opacity: 1, scale: 1, transition: { duration: 0.7, ease: [0.2, 0.8, 0.2, 1] } },
   },
   tilt: {
     hidden: { opacity: 0, y: 28, rotateX: -8, transformPerspective: 800 },

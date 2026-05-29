@@ -402,10 +402,10 @@ export function Team() {
           </div>
         </div>
 
-        <div className="grid gap-6 xl:grid-cols-3">
+        <div className="crew-grid grid gap-7 xl:grid-cols-3">
           {team.map((m, i) => (
             <Reveal key={m.name} delay={i * 0.08}>
-              <MemberCard m={m} />
+              <MemberCard m={m} index={i} />
             </Reveal>
           ))}
         </div>

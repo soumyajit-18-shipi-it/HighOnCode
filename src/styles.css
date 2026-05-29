@@ -172,10 +172,10 @@
   .font-body { font-family: var(--font-body); }
 
   .text-glow {
-    text-shadow: 0 0 2px rgba(99, 216, 227, 0.1), 0 0 12px rgba(99, 216, 227, 0.06);
+    text-shadow: 0 0 1px rgba(99, 216, 227, 0.06), 0 0 10px rgba(99, 216, 227, 0.04);
   }
   .text-glow-soft {
-    text-shadow: 0 0 2px rgba(139, 216, 220, 0.08);
+    text-shadow: 0 0 1px rgba(139, 216, 220, 0.05);
   }
 
   /* Muted, premium text palette — overrides bright defaults in this theme */
